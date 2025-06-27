@@ -13,7 +13,7 @@ class Header extends HTMLElement {
                 <div class="col col-3 col-xl-4">
                     <input class="rounded form-control-sm px-3 w-100" placeholder="Search Photo / Album"></input>
                 </div>
-                <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center">
+                <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
                     <img class="rounded-circle avatar" src="../../res/penguin.png">
                     <h6 class="my-auto mx-3">User</h6>
                 </div>
