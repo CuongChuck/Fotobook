@@ -1,9 +1,38 @@
+:root {
+    --primary: #3C5999;
+    --background: #F9F9F9;
+}
+
 header {
-    background-color: #3C5999;
+    background-color: var(--primary);
     color: white;
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+.icon {
+    cursor: pointer;
 }
 
 .avatar {
     width: 12%;
     height: 12%;
+}
+
+.login-form {
+    background-color: var(--background);
+}
+
+.authorize-button {
+    background-color: var(--primary);
+    color: white;
+    font-weight: 500;
 }
