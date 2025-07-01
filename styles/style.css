@@ -1,0 +1,120 @@
+:root {
+    --primary: #3C5999;
+    --background: #F9F9F9;
+    --notlike: #E0E0E0;
+    --label: #333333;
+    --follow: #EB6057;
+    --font-tiny: 65%;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: bolder;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h6 {
+    font-weight: 600;
+}
+
+span {
+    font-size: var(--font-tiny);
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+label {
+    color: var(--label);
+    font-weight: 700 !important;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.avatar {
+    width: 15%;
+}
+
+.avatar-post {
+    width: 20%;
+}
+
+.form {
+    background-color: var(--background);
+}
+
+.authorize-button {
+    background-color: var(--primary);
+    color: white;
+}
+
+#mode-button:hover, .mode-radio:checked + .mode {
+    color: white;
+    background-color: var(--primary);
+}
+
+.mode {
+    color: var(--primary);
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid var(--primary);
+}
+
+.postor {
+    color: var(--primary);
+}
+
+#follow-button:hover, .follow-input:checked + .follow-label {
+    background: var(--follow);
+    color: white;
+}
+
+.follow-label {
+    border: 1px solid var(--follow);
+    color: var(--follow);
+    font-size: 0.5rem;
+}
+
+.like {
+    color: var(--notlike);
+}
+
+.like:hover {
+    cursor: pointer;
+    color: var(--primary) !important;
+}
+
+.time {
+    font-size: var(--font-tiny);
+    color: grey;
+}
+
+nav-bar {
+    position: sticky;
+    width: fit-content;
+    height: fit-content;
+    top: 50px;
+    left: 30px;
+}
+
+nav-bar > div {
+    cursor: pointer;
+    color: var(--primary);
+}
