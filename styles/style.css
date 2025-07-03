@@ -4,6 +4,7 @@
     --notlike: #E0E0E0;
     --label: #333333;
     --follow: #EB6057;
+    --nav-tab: #828282;
     --font-tiny: 65%;
 }
 
@@ -49,11 +50,14 @@ label {
 }
 
 .avatar {
-    width: 15%;
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
 }
 
-.avatar-post {
-    width: 20%;
+[dark="true"]>.avatar {
+    background-color: white;
+    color: var(--primary);
 }
 
 .form {
@@ -63,6 +67,16 @@ label {
 .authorize-button {
     background-color: var(--primary);
     color: white;
+}
+
+.authorize-button:hover {
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+}
+
+.text-link:hover {
+    text-decoration: underline;
 }
 
 #mode-button:hover, .mode-radio:checked + .mode {
@@ -110,11 +124,36 @@ nav-bar {
     position: sticky;
     width: fit-content;
     height: fit-content;
-    top: 50px;
-    left: 30px;
+    top: 1%;
+    left: 3%;
 }
 
-nav-bar > div {
-    cursor: pointer;
+nav-bar a {
+    color: var(--nav-tab);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+nav-bar a:hover {
     color: var(--primary);
+}
+
+nav-bar a[current="true"] {
+    color: var(--primary);
+}
+
+header a {
+    color: white;
+}
+
+header a:hover {
+    font-weight: 600;
+}
+
+.title-panel {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.title-panel > span {
+    font-size: small;
 }
