@@ -1,13 +1,22 @@
+class AvaStyle extends HTMLElement {
+    constructor() { super(); }
+    connectedCallback() {
+        this.innerHTML = `
+            <div class="rounded-circle avatar p-1">AD</div>
+        `;
+    }
+}
+
 class Header extends HTMLElement {
     constructor() { super(); }
 
     connectedCallback() {
-        const isAdmin = this.getAttribute("admin") == "true" ? "Admin" : "";
+        const isAdmin = this.getAttribute("admin") == "true" ? " Admin" : "";
         const isLogin = this.getAttribute("login") == "true" ? true : false;
         this.innerHTML = `
             <header class="d-flex flex-row align-items-center text-center">
                 <div class="col col-4 col-md-3 col-xl-2">
-                    <h4 class="my-2">${"Fotobook" + isAdmin}</h4>
+                    <a href="${isLogin ? "" : "./index.html"}"><h4 class="my-2">${"Fotobook" + isAdmin}</h4></a>
                 </div>
                 <div class="col col-3 col-xl-4">
                     <input class="rounded form-control-sm px-3 w-100" placeholder="Search Photo / Album"></input>
@@ -15,13 +24,13 @@ class Header extends HTMLElement {
                 <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
                     ${
                         isLogin ?
-                        `<img class="rounded-circle avatar" src="../../res/penguin.png">
+                        `<ava-style dark="true"></ava-style>
                         <h6 class="my-auto mx-3">User</h6>` :
                         ``
                     }
                 </div>
                 <div class="col col-2">
-                    <h6 class="my-2">Login</h6>
+                    <a class="my-2" href="${isLogin ? "../guest/index.html" : "./login.html"}">${isLogin ? "Logout" : "Login"}</a>
                 </div>
             </header>
         `;
@@ -32,14 +41,17 @@ class NavigationBar extends HTMLElement {
     constructor() { super(); }
 
     connectedCallback() {
-        const isAdmin = this.getAttribute('isAdmin') == "true" ? true : false
+        const isAdmin = this.getAttribute('admin') == "true" ? true : false
         this.innerHTML =
-            isAdmin ?
-            `<div>Manage Photos</div>
-            <div>Manage Albums</div>
-            <div>Manage Users</div>` :
-            `<div>Feeds</div>
-            <div>Discover</div>`
+            `<div class="d-flex flex-column">
+                ${isAdmin ?
+                    `<a current="true" href="#">Manage Photos</a>
+                    <a href="#">Manage Albums</a>
+                    <a href="#">Manage Users</a>` :
+                    `<a href="#">Feeds</a>
+                    <a href="#">Discover</a>`
+                }
+            </div>`
         ;
     }
 }
@@ -95,7 +107,7 @@ class Post extends HTMLElement {
                 <div class="container d-grid pe-1">
                     <div class="d-flex flex-row justify-content-between align-items-center">
                         <div class="d-flex flex-row">
-                            <img class="rounded-circle avatar-post" src="../../res/penguin.png">
+                            <ava-style></ava-style>
                             <h6 class="my-auto mx-2 postor">User</h6>
                         </div>
                         ${follow ? `<follow-button></follow-button>` : ``}
@@ -120,13 +132,30 @@ class Post extends HTMLElement {
     } 
 }
 
+class MediaManager extends HTMLElement {
+    constructor() { super(); }
+    connectedCallback() {
+        this.innerHTML = `
+            <div class="media-manager-container position-relative w-75 mb-2">
+                <img class="w-100" src="../../res/penguin.png">
+                <div class="title-panel position-absolute top-0 start-0 w-100 px-2 py-1 d-flex flex-row align-items-center justify-content-between">
+                    <span class="text-white overflow-hidden me-2">Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+                    <i class="text-white fa-regular fa-pen-to-square"></i>
+                </div>
+            </div>
+        `;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    customElements.define('ava-style', AvaStyle);
     customElements.define('header-fotobook', Header);
     customElements.define('nav-bar', NavigationBar);
     customElements.define('authorize-button', AuthorizeButton);
     customElements.define('mode-switch', Switch);
     customElements.define('follow-button', FollowButton);
     customElements.define('user-post', Post);
+    customElements.define('media-manager', MediaManager);
 
     document.getElementById("google").addEventListener("click", () => {
         window.open("https://accounts.google.com/signin", '_blank');
