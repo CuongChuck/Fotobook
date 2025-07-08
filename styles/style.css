@@ -103,7 +103,7 @@ label {
 .follow-label {
     border: 1px solid var(--follow);
     color: var(--follow);
-    font-size: 0.5rem;
+    
 }
 
 .like {
@@ -156,4 +156,82 @@ header a:hover {
 
 .title-panel > span {
     font-size: small;
+}
+
+.back-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.back-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.avatar-upload-container {
+    width: 130px;
+}
+
+.change {
+    font-size: small;
+}
+
+.edit-info-title {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.edit-info label {
+    font-size: small;
+}
+
+.edit-profile-button {
+    color: var(--primary);
+    font-size: small;
+    font-weight: bold;
+    border: 2px solid var(--primary);
+    width: fit-content;
+}
+
+.edit-profile-button:hover {
+    color: white;
+    background-color: var(--primary);
+    font-weight: bold;
+    border: 2px solid var(--primary);
+}
+
+.profile-tab, .profile-tab>span {
+    color: var(--nav-tab);
+}
+
+.profile-tab:hover>*, .profile-tab:hover, .profile-tab:hover>*, .profile-tab[select="true"], .profile-tab[select="true"]>span {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.edit-media-button {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.photo-counter {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.tag {
+    font-size: x-small;
+    color: var(--primary);
+    margin-top: -5px;
+}
+
+.tagnum {
+    color: var(--primary);
+}
+
+.new-field {
+    width: 45%;
+}
+
+.photo-upload {
+    width: 40%;
 }
