@@ -16,8 +16,8 @@
             </div>
             <div class="container form my-4 px-4 pb-4 mx-auto d-flex flex-column align-items-center rounded">
                 <i class="fa-solid fa-circle-user fa-5x my-5"></i>
-                <input class="form-control" type="email" placeholder="Email">
-                <input class="form-control" type="password" placeholder="Password">
+                <input class="form-control" type="email" placeholder="Email" required autofocus>
+                <input class="form-control" type="password" placeholder="Password" required>
                 <authorize-button login="true"></authorize-button>
                 <a class="mt-4 text-link" href="#">Forgot password?</a>
             </div>
@@ -26,5 +26,18 @@
         <script src="https://kit.fontawesome.com/9c581427c5.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
         <script src="../../scripts/script.js"></script>
+        <script>
+            document.getElementById("google").addEventListener("click", () => {
+                window.open("https://accounts.google.com/signin", '_blank');
+            });
+
+            document.getElementById("facebook").addEventListener("click", () => {
+                window.open("https://facebook.com/login", '_blank');
+            });
+
+            document.getElementById("X").addEventListener("click", () => {
+                window.open("https://x.com/i/flow/login", '_blank');
+            });
+        </script>
     </body>
 </html>
