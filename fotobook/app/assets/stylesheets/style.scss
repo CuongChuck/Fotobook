@@ -1,0 +1,246 @@
+:root {
+    --primary: #3C5999;
+    --background: #F9F9F9;
+    --notlike: #E0E0E0;
+    --label: #333333;
+    --follow: #EB6057;
+    --nav-tab: #828282;
+    --font-tiny: 65%;
+}
+
+h1 {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: bolder;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h6 {
+    font-weight: 600;
+}
+
+span {
+    font-size: var(--font-tiny);
+    color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary);
+}
+
+label {
+    color: var(--label);
+    font-weight: 700 !important;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.avatar {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+[dark="true"]>.avatar {
+    background-color: white;
+    color: var(--primary);
+}
+
+.form {
+    background-color: var(--background);
+}
+
+.authorize-button {
+    background-color: var(--primary);
+    color: white;
+}
+
+.authorize-button:hover {
+    font-weight: bold;
+    background-color: var(--primary);
+    color: white;
+}
+
+.text-link:hover {
+    text-decoration: underline;
+}
+
+#mode-button:hover, .mode-radio:checked + .mode {
+    color: white;
+    background-color: var(--primary);
+}
+
+.mode {
+    color: var(--primary);
+    font-weight: bold;
+    border-radius: 4px;
+    border: 1px solid var(--primary);
+}
+
+.postor {
+    color: var(--primary);
+}
+
+#follow-button:hover, .follow-input:checked + .follow-label {
+    background: var(--follow);
+    color: white;
+}
+
+.follow-label {
+    border: 1px solid var(--follow);
+    color: var(--follow);
+    
+}
+
+.like {
+    color: var(--notlike);
+}
+
+.notlike {
+    color: var(--notlike);
+}
+
+.like:hover {
+    cursor: pointer;
+    color: var(--primary) !important;
+}
+
+.time {
+    font-size: var(--font-tiny);
+    color: grey;
+}
+
+nav-bar {
+    position: sticky;
+    width: fit-content;
+    height: fit-content;
+    top: 10%;
+    left: 3%;
+}
+
+nav-bar a {
+    color: var(--nav-tab);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+nav-bar a:hover {
+    color: var(--primary);
+}
+
+nav-bar a[current="true"] {
+    color: var(--primary);
+}
+
+header a {
+    color: white;
+}
+
+header a:hover {
+    font-weight: 600;
+}
+
+.title-panel {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.title-panel > span {
+    font-size: small;
+}
+
+.back-btn {
+    background-color: var(--primary);
+    color: white;
+}
+
+.back-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+}
+
+.avatar-upload-container {
+    width: 130px;
+}
+
+.change {
+    font-size: small;
+}
+
+.edit-info-title {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.edit-info label {
+    font-size: small;
+}
+
+.edit-profile-button {
+    color: var(--primary);
+    font-size: small;
+    font-weight: bold;
+    border: 2px solid var(--primary);
+    width: fit-content;
+}
+
+.edit-profile-button:hover {
+    color: white;
+    background-color: var(--primary);
+    font-weight: bold;
+    border: 2px solid var(--primary);
+}
+
+.profile-tab, .profile-tab>span {
+    color: var(--nav-tab);
+}
+
+.profile-tab:hover>*, .profile-tab:hover, .profile-tab:hover>*, .profile-tab[select="true"], .profile-tab[select="true"]>span {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.edit-media-button {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.photo-counter {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.tag {
+    font-size: x-small;
+    color: var(--primary);
+    margin-top: -5px;
+}
+
+.tagnum {
+    color: var(--primary);
+}
+
+.new-field {
+    width: 45%;
+}
+
+.photo-upload {
+    width: 40%;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    z-index: 999;
+}
+
+.small-ava {
+    width: 10%;
+}
