@@ -1,0 +1,17 @@
+<header class="d-flex flex-row align-items-center text-center position-sticky top-0">
+    <div class="col col-4 col-md-3 col-xl-2">
+        <a href=<%= isLogin ? "" : "/" %>><h4 class="my-2"><%= isAdmin ? "Fotobook Admin" : "Fotobook" %></h4></a>
+    </div>
+    <div class="col col-3 col-xl-4">
+        <input class="rounded form-control-sm px-3 w-100" placeholder="Search Photo / Album">
+    </div>
+    <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
+        <% if isLogin %>
+            <a href="./profile-self.html" class="d-flex flex-row"><ava-style dark="true"></ava-style>
+            <h6 class="my-auto mx-3">User</h6></a>
+        <% end %>
+    </div>
+    <div class="col col-2">
+        <a class="my-2" href=<%= isLogin ? "" : "/login" %>><%= isLogin ? "Logout" : "Login" %></a>
+    </div>
+</header>
