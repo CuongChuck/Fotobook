@@ -1,0 +1,11 @@
+<div class="d-flex flex-row">
+    <div class="bg-white mt-3 pt-3 w-75 container justify-content-center">
+        <%= render partial: "mode_switch", locals: { photo: false, album: true } %>
+        <div class="post-container row d-flex justify-content-center">
+            <%= render partial: "application/modal_album" %>
+            <% @albums.each do |album| %>
+                <%= render partial: "albums/album", locals: { album: album, follow: follow } %>
+            <% end %>
+        </div>
+    </div>
+</div>
