@@ -119,7 +119,7 @@ label {
     color: grey;
 }
 
-nav-bar {
+.nav-bar {
     position: sticky;
     width: fit-content;
     height: fit-content;
@@ -127,17 +127,17 @@ nav-bar {
     left: 3%;
 }
 
-nav-bar a {
+.nav-bar a {
     color: var(--nav-tab);
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-nav-bar a:hover {
+.nav-bar a:hover {
     color: var(--primary);
 }
 
-nav-bar a[current="true"] {
+.nav-bar a[current="true"] {
     color: var(--primary);
 }
 
