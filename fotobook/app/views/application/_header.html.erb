@@ -7,13 +7,13 @@
     </div>
     <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
         <% if user_signed_in? && user.avatar %>
-            <a><img class="w-50 h-100" src=<%= user.avatar.url %>></a>
-            <h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6>
+            <a href=<%= t('path.user') + t('path.photos') %>><img class="w-50 h-100" src=<%= user.avatar.url %>></a>
+            <a href=<%= t('path.user') + t('path.photos') %>><h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6></a>
         <% elsif user_signed_in? %>
-            <div dark="true">
+            <a href=<%= t('path.user') + t('path.photos') %>><div dark="true">
                 <%= render partial: "ava", locals: { fname: user.fname, lname: user.lname } %>
-            </div>
-            <h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6>
+            </div></a>
+            <a href=<%= t('path.user') + t('path.photos') %>><h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6></a>
         <% end %>
     </div>
     <div class="col col-2">
