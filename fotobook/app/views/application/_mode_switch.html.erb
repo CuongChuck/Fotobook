@@ -1,0 +1,11 @@
+<div class="d-flex flex-row justify-content-center mb-2">
+    <a href=<%= !user_signed_in? ? "/" : request.path.include?("discover") ? "/photos/discover" : "/photos/feed" %>>
+        <input type="radio" class="btn-check mode-radio" id="photo" autocomplete="off" <%= 'checked' if photo %>>
+        <label id="mode-button" class="btn mode" for="photo">PHOTO</label>
+    </a>
+
+    <a href=<%= !user_signed_in? ? "/albums" : request.path.include?("discover") ? "/albums/discover" : "/albums/feed" %>>
+        <input type="radio" class="btn-check mode-radio" id="album" autocomplete="off" <%= 'checked' if album %>>
+        <label id="mode-button" class="btn mode" for="album">ALBUM</label>
+    </a>
+</div>

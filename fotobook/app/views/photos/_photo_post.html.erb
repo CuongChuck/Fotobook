@@ -1,0 +1,35 @@
+<div class="col col-12 col-lg-6">    
+    <div class="d-flex flex-row bg-body-secondary p-1 post my-2 mx-2">
+        <img class="w-50 h-100 photo-image" src=<%= photo.url %> data-bs-toggle="modal" data-bs-target="#photo-content">
+        <div class="container d-grid pe-1">
+            <div class="d-flex flex-row justify-content-between align-items-center">
+                <div class="d-flex flex-row">
+                    <% if photo.user.avatar %>
+                        <img class="rounded-circle small-ava" src=<%= photo.user.avatar.url %> alt=<%= photo.user.fname + " " + photo.user.lname %>>
+                    <% else %>
+                        <%= render partial: "application/ava", locals: { fname: photo.user.fname, lname: photo.user.lname } %>
+                    <% end %>
+                    <% if user_signed_in? %>
+                        <a href="#" class="my-auto mx-2">
+                            <h6 class="my-auto postor"><%= "#{photo.user.fname} #{photo.user.lname}" %></h6>
+                        </a>
+                        <% else %>
+                        <h6 class="my-auto postor mx-2"><%= "#{photo.user.fname} #{photo.user.lname}" %></h6>
+                    <% end %>
+                </div>
+                <% if local_assigns[:follow] %>
+                    <%= render partial: "application/follow", locals: { user: photo.user, follow: current_user.followees.include?(photo.user) } %>
+                <% end %>
+            </div>
+            <h5 class="fs-5 mt-2 text-center photo-title"><%= photo.title %></h5>
+            <p class="photo-description"><%= photo.description %></p>
+            <div class="d-flex flex-row justify-content-between align-items-center align-self-end">
+                <div class="d-flex flex-row align-items-center">
+                    <i class="fa-solid fa-heart fa-xs <%= user_signed_in? ? "like" : "notlike" %> me-1"></i>
+                    <span><%= photo.user_like_photo.size %></span>
+                </div>
+                <p class="time my-0"><%= l photo.updated_at.in_time_zone("Asia/Ho_Chi_Minh"), format: :timestamp %></p>
+            </div>
+        </div>
+    </div>
+</div>
