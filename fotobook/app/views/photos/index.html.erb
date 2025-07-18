@@ -1,10 +1,25 @@
 <div class="d-flex flex-row">
+    <% if user_signed_in? %>
+        <% if current_user.isAdmin %>
+            <%= render(partial: "navbar", locals: { page: "photo" }) %>
+        <% else %>
+            <%= render(partial: "navbar", locals: { page: local_assigns[:feed] ? "feed" : "discover" }) %>
+        <% end %>
+    <% end %>
     <div class="bg-white mt-3 pt-3 w-75 container justify-content-center">
-        <%= render partial: "mode_switch", locals: { photo: true, album: false } %>
+        <%= (user_signed_in? && current_user.isAdmin) ? "" : render(partial: "mode_switch", locals: { photo: true, album: false }) %>
         <div class="post-container row d-flex justify-content-center">
-            <%= render partial: "application/modal" %>
+            <%= (user_signed_in? && current_user.isAdmin) ? "" : render(partial: "application/modal") %>
             <% @photos.each do |photo| %>
-                <%= render partial: "photos/photo", locals: { photo: photo, follow: follow, isLogin: false } %>
+                <% if user_signed_in? %>
+                    <% if current_user.isAdmin %>
+                        <%= render(photo) %>
+                    <% else %>
+                        <%= render(partial: "photo_post", locals: { photo: photo , follow: local_assigns[:feed] }) %>
+                    <% end %>
+                <% else %>
+                    <%= render(partial: "photo_post", locals: { photo: photo }) %>
+                <% end %>
             <% end %>
         </div>
     </div>
