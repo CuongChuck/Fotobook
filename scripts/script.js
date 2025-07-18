@@ -7,56 +7,6 @@ class AvaStyle extends HTMLElement {
     }
 }
 
-class Header extends HTMLElement {
-    constructor() { super(); }
-
-    connectedCallback() {
-        const isAdmin = this.getAttribute("admin") == "true" ? " Admin" : "";
-        const isLogin = this.getAttribute("login") == "true" ? true : false;
-        this.innerHTML = `
-            <header class="d-flex flex-row align-items-center text-center">
-                <div class="col col-4 col-md-3 col-xl-2">
-                    <a href="${isLogin ? "./feed.html" : "./index.html"}"><h4 class="my-2">${"Fotobook" + isAdmin}</h4></a>
-                </div>
-                <div class="col col-3 col-xl-4">
-                    <input class="rounded form-control-sm px-3 w-100" placeholder="Search Photo / Album"></input>
-                </div>
-                <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
-                    ${
-                        isLogin ?
-                        `<a href="./profile-self.html" class="d-flex flex-row"><ava-style dark="true"></ava-style>
-                        <h6 class="my-auto mx-3">User</h6></a>` :
-                        ``
-                    }
-                </div>
-                <div class="col col-2">
-                    <a class="my-2" href="${isLogin ? "../guest/index.html" : "./login.html"}">${isLogin ? "Logout" : "Login"}</a>
-                </div>
-            </header>
-        `;
-    }
-}
-
-class NavigationBar extends HTMLElement {
-    constructor() { super(); }
-
-    connectedCallback() {
-        const isAdmin = this.getAttribute('admin') == "true" ? true : false
-        const page = this.getAttribute('page');
-        this.innerHTML =
-            `<div class="d-flex flex-column">
-                ${isAdmin ?
-                    `<a current="${page == "photo" ? "true" : "false"}" href="./manage-photo.html">Manage Photos</a>
-                    <a current="${page == "album" ? "true" : "false"}" href="./manage-album.html">Manage Albums</a>
-                    <a current="${page == "user" ? "true" : "false"}" href="./manage-user.html">Manage Users</a>` :
-                    `<a current="${page == "feed" ? "true" : "false"}" href="./feed.html">Feeds</a>
-                    <a current="${page == "discover" ? "true" : "false"}" href="./discover.html">Discover</a>`
-                }
-            </div>`
-        ;
-    }
-}
-
 class AuthorizeButton extends HTMLElement {
     constructor() { super(); }
 
@@ -302,6 +252,56 @@ class ProfileFollow extends HTMLElement {
                 this.style.display = "none";
             });
         }
+    }
+}
+
+class Header extends HTMLElement {
+    constructor() { super(); }
+
+    connectedCallback() {
+        const isAdmin = this.getAttribute("admin") == "true" ? " Admin" : "";
+        const isLogin = this.getAttribute("login") == "true" ? true : false;
+        this.innerHTML = `
+            <header class="d-flex flex-row align-items-center text-center position-sticky top-0">
+                <div class="col col-4 col-md-3 col-xl-2">
+                    <a href="${isLogin ? "./feed.html" : "./index.html"}"><h4 class="my-2">${"Fotobook" + isAdmin}</h4></a>
+                </div>
+                <div class="col col-3 col-xl-4">
+                    <input class="rounded form-control-sm px-3 w-100" placeholder="Search Photo / Album"></input>
+                </div>
+                <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
+                    ${
+                        isLogin ?
+                        `<a href="./profile-self.html" class="d-flex flex-row"><ava-style dark="true"></ava-style>
+                        <h6 class="my-auto mx-3">User</h6></a>` :
+                        ``
+                    }
+                </div>
+                <div class="col col-2">
+                    <a class="my-2" href="${isLogin ? "../guest/index.html" : "./login.html"}">${isLogin ? "Logout" : "Login"}</a>
+                </div>
+            </header>
+        `;
+    }
+}
+
+class NavigationBar extends HTMLElement {
+    constructor() { super(); }
+
+    connectedCallback() {
+        const isAdmin = this.getAttribute('admin') == "true" ? true : false
+        const page = this.getAttribute('page');
+        this.innerHTML =
+            `<div class="d-flex flex-column">
+                ${isAdmin ?
+                    `<a current="${page == "photo" ? "true" : "false"}" href="./manage-photo.html">Manage Photos</a>
+                    <a current="${page == "album" ? "true" : "false"}" href="./manage-album.html">Manage Albums</a>
+                    <a current="${page == "user" ? "true" : "false"}" href="./manage-user.html">Manage Users</a>` :
+                    `<a current="${page == "feed" ? "true" : "false"}" href="./feed.html">Feeds</a>
+                    <a current="${page == "discover" ? "true" : "false"}" href="./discover.html">Discover</a>`
+                }
+            </div>`
+        ;
     }
 }
 

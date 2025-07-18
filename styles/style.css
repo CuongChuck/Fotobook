@@ -8,11 +8,6 @@
     --font-tiny: 65%;
 }
 
-header {
-    background-color: var(--primary);
-    color: white;
-}
-
 h1 {
     color: var(--primary);
     font-weight: bold;
@@ -124,7 +119,7 @@ nav-bar {
     position: sticky;
     width: fit-content;
     height: fit-content;
-    top: 1%;
+    top: 10%;
     left: 3%;
 }
 
@@ -234,4 +229,10 @@ header a:hover {
 
 .photo-upload {
     width: 40%;
+}
+
+header {
+    background-color: var(--primary);
+    color: white;
+    z-index: 999;
 }
