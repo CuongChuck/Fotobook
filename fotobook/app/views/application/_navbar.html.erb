@@ -4,7 +4,7 @@
         <a current=<%= page == "album" ? "true" : "false" %> href=<%= albums_path %>><%= t('manage', item: t('album')) %></a>
         <a current=<%= page == "user" ? "true" : "false" %> href=<%= users_path %>><%= t('manage', item: t('users')) %></a>
     <% else %>
-        <a current=<%= page == "feed" ? "true" : "false" %> href="/photos/feed"><%= t('feed') %></a>
-        <a current=<%= page == "discover" ? "true" : "false" %> href="/photos/discover"><%= t('discover') %></a>
+        <a current=<%= page == "feed" ? "true" : "false" %> href=<%= t('photos') + t('feed_path') %>><%= t('feed') %></a>
+        <a current=<%= page == "discover" ? "true" : "false" %> href=<%= t('photos') + t('discover_path') %>><%= t('discover') %></a>
     <% end %>
 </div>

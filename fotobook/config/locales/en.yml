@@ -32,3 +32,14 @@ en:
   time:
     formats:
       timestamp: "%-I:%M %P %d/%m/%Y"
+  feed: "Feeds"
+  discover: "Discover"
+  photo: "Photo"
+  album: "Album"
+  users: "Users"
+  manage: "Manage %{item}"
+  photos: "/photos"
+  albums: "/albums"
+  feed_path: "/feed"
+  discover_path: "/discover"
+
