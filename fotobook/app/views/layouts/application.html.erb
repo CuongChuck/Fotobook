@@ -19,8 +19,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class=<%= ['/login', '/signup'].include?(request.path) ? "" : "bg-body-tertiary" %>>
-    <%= render partial: "header", locals: { isAdmin: false, isLogin: false } %>
+  <body class=<%= [new_user_session_path, new_user_registration_path].include?(request.path) ? "" : "bg-body-tertiary" %>>
+    <%= render partial: "header", locals: { isAdmin: false, isLogin: false, user: current_user } %>
     <%= yield %>
   </body>
 </html>

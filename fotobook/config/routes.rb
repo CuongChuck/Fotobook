@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :users
-  resources :albums
-  resources :photos
-  resources :pictures
+  root "photos#index"
+  get "/albums", to: "albums#index"
+
+  devise_for :users, path: '', path_names: {
+      sign_in: '/login', sign_out: '/logout',
+      password: 'secret', confirmation: 'verification',
+      registration: '/signup', edit: 'edit/profile'
+    }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -14,8 +18,10 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "guest#photo"
-  get "/login", to: "guest#login"
-  get "/signup", to: "guest#signup"
-  get "/album", to: "guest#album"
+  get '/photos/feed', to: 'photos#index', as: :user_root
+  get '/albums/feed', to: 'albums#index'
+  get '/photos/discover', to: 'photos#index'
+  get '/albums/discover', to: 'albums#index'
+  get '/photos/manage', to: 'photos#index', as: :admin_root
+  get '/albums/manage', to: 'albums#index'
 end
