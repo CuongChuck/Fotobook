@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbo:load', () => {
     const postImages = document.getElementsByClassName('photo-image');
     const postTitles = document.getElementsByClassName('photo-title');
     const postDescriptions = document.getElementsByClassName('photo-description');
@@ -31,20 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (x) {
         x.addEventListener("click", () => {
             window.open("https://x.com/i/flow/login");
-        });
-    }
-
-    const albummode = document.getElementById("album");
-    if (albummode) {
-        albummode.addEventListener("click", () => {
-            window.open("/album", "_self");
-        });
-    }
-
-    const photomode = document.getElementById("photo");
-    if (photomode) {
-        photomode.addEventListener("click", () => {
-            window.open("/", "_self");
         });
     }
 
