@@ -1,0 +1,19 @@
+<div class="d-flex flex-row">
+    <img class="rounded-circle h-25 me-4" src="../../res/penguin.png">
+    <div class="d-flex flex-column">
+        <% if isPublic %>
+            <%= render(partial: "follow") %>
+        <% else %>
+            <a href="./edit-user.html"><button class="btn edit-profile-button rounded-pill py-1">Edit Profile</button></a>
+        <% end %>
+        <h1 class="text-black my-3">"#{current_user.fname} #{current_user.lname}"</h1>
+        <div class="d-flex flex-wrap">
+            <a href=${isPublic ? "./profile.html" : "./profile-self.html"} class="profile-tab" select=${page == "photo" ? "true" : "false"}><span class="fs-3">108</span> PHOTOS</a>
+            <div class="border-start mx-lg-3 mx-2"></div>
+            <a href=${isPublic ? "./profile-album.html" : "./profile-self-album.html"} class="profile-tab" select=${page == "album" ? "true" : "false"}><span class="fs-3">108</span> ALBUMS</a>
+            <div class="border-start mx-lg-3 mx-2"></div>
+            <a href=${isPublic ? "./profile-following.html" : "./profile-self-following.html"} class="profile-tab" select=${page == "following" ? "true" : "false"}><span class="fs-3">108</span> FOLLOWINGS</a>
+            <div class="border-start mx-lg-3 mx-2"></div>
+            <a href=${isPublic ? "./profile-follower.html" : "./profile-self-follower.html"} class="profile-tab" select=${page == "follower" ? "true" : "false"}><span class="fs-3">108</span> FOLLOWERS</a>                <div>
+        </div>
+    </div>
