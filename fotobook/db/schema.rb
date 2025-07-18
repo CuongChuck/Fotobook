@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_17_083201) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_18_080557) do
   create_table "album_has_photo", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "album_id"
     t.bigint "photo_id"
@@ -79,6 +79,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_17_083201) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "password"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
