@@ -24,4 +24,8 @@ Rails.application.routes.draw do
   get '/albums/discover', to: 'albums#index'
   get '/photos/manage', to: 'photos#index', as: :admin_root
   get '/albums/manage', to: 'albums#index'
+  get '/user/photos', to: 'users#show'
+  get '/user/albums', to: 'users#show'
+  get '/user/followings', to: 'users#show'
+  get '/user/followers', to: 'users#show'
 end
