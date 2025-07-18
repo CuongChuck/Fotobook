@@ -1,0 +1,22 @@
+<% content_for :title, "Manage Users" %>
+
+<div class="d-flex flex-row">
+    <%= render(partial: "navbar", locals: { page: "user", isAdmin: true }) %>
+    <div class="bg-white mt-3 pt-3 w-75 container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Last login</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                <% @users.each do |user| %>
+                    <%= render user %>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
