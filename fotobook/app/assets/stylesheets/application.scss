@@ -8,6 +8,6 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
-@import "bootstrap";
-@import "font-awesome";
-@import "style";
+@use "bootstrap";
+@use "font-awesome";
+@use "style";
