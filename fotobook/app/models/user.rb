@@ -15,4 +15,9 @@ class User < ApplicationRecord
     validates :fname, length: { maximum: 25 }, presence: true
     validates :lname, length: { maximum: 25 }, presence: true
     validates :email, length: { maximum: 255 }, presence: true, uniqueness: true, format: URI::MailTo::EMAIL_REGEXP
+    validates :password, length: { maximum: 64 }, presence: true
+
+    def active_for_authentication?
+        super && isActive
+    end
 end
