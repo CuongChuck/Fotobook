@@ -1,19 +1,24 @@
 <div class="d-flex flex-row">
-    <img class="rounded-circle h-25 me-4" src="../../res/penguin.png">
+    <% if user.avatar %>
+        <img class="rounded-circle h-25 me-4" src=<%= user.avatar.image.url %>>
+    <% else %>
+        <%= render partial: "ava", locals: { fname: user.fname, lname: user.lname, classname: "fs-1 p-5 me-4" } %>
+    <% end %>
     <div class="d-flex flex-column">
-        <% if isPublic %>
-            <%= render(partial: "follow") %>
+        <% if params[:user_id] != current_user.id.to_s %>
+            <%= render "follow", user: local_assigns[:user] %>
         <% else %>
-            <a href="./edit-user.html"><button class="btn edit-profile-button rounded-pill py-1">Edit Profile</button></a>
+            <button onclick="window.open('<%= edit_user_registration_path %>', '_self')" class="btn edit-profile-button rounded-pill py-1">Edit Profile</button>
         <% end %>
-        <h1 class="text-black my-3">"#{current_user.fname} #{current_user.lname}"</h1>
+        <h1 class="text-black my-3"><%= "#{user.fname} #{user.lname}" %></h1>
         <div class="d-flex flex-wrap">
-            <a href=${isPublic ? "./profile.html" : "./profile-self.html"} class="profile-tab" select=${page == "photo" ? "true" : "false"}><span class="fs-3">108</span> PHOTOS</a>
+            <a href=<%= photos_path %> class="profile-tab" select=<%= page == "photos" ? "true" : "false" %>><span class="fs-3"><%= user.photos.photo_only.count %></span> PHOTOS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=${isPublic ? "./profile-album.html" : "./profile-self-album.html"} class="profile-tab" select=${page == "album" ? "true" : "false"}><span class="fs-3">108</span> ALBUMS</a>
+            <a href=<%= "#{t('path.users')}/#{params[:user_id]}#{t('path.albums')}" %> class="profile-tab" select=<%= page == "albums" ? "true" : "false" %>><span class="fs-3"><%= user.albums.count %></span> ALBUMS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=${isPublic ? "./profile-following.html" : "./profile-self-following.html"} class="profile-tab" select=${page == "following" ? "true" : "false"}><span class="fs-3">108</span> FOLLOWINGS</a>
+            <a href=<%= followings_path %> class="profile-tab" select=<%= page == "followings" ? "true" : "false" %>><span class="fs-3"><%= user.followees.count %></span> FOLLOWINGS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=${isPublic ? "./profile-follower.html" : "./profile-self-follower.html"} class="profile-tab" select=${page == "follower" ? "true" : "false"}><span class="fs-3">108</span> FOLLOWERS</a>                <div>
+            <a href=<%= followers_path %> class="profile-tab" select=<%= page == "followers" ? "true" : "false" %>><span class="fs-3"><%= user.followers.count %></span> FOLLOWERS</a>
         </div>
     </div>
+</div>
