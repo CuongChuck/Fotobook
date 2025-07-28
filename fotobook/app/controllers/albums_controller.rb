@@ -1,37 +1,32 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_normal_user, only: [:create]
 
   # GET /albums or /albums.json
   def index
     if user_signed_in?
       if current_user.isAdmin?
-        @albums = Album.all.includes(:photos)
+        @albums = Album.include_photos.select(:title)
       else
         if request.path.include?("/discover")
-          @albums = Album.includes(:photos, :user_like_album, :user).where(isPublic: true)
+          @albums = Album.include_photos.include_likes.include_users.public_only
         else
-          @albums = Album.includes(:photos, :user_like_album, user: [:followees]).where(user_id: current_user.followees.select(:id), isPublic: true)
+          @albums = Album.include_photos.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id), isPublic: true) + Album.include_photos.include_likes.where(user_id: current_user.id)
           render "index", locals: { feed: true }
         end
       end
     else
-      @albums = Album.includes(:photos, :user_like_album, :user).where(isPublic: true)
+      @albums = Album.include_photos.include_likes.include_users.public_only
     end
   end
 
   # GET /albums/1 or /albums/1.json
   def show
-    @albums = Album.all
-  end
-
-  def feed
-    @albums = Album.includes(:user, :photos, :user_like_album).where(user_id: current_user.followees.select(:id), isPublic: true)
-    render "index", locals: { feed: true }
   end
 
   # GET /albums/new
   def new
-    @album = Album.new
   end
 
   # GET /albums/1/edit
@@ -40,50 +35,111 @@ class AlbumsController < ApplicationController
 
   # POST /albums or /albums.json
   def create
-    @album = Album.new(album_params)
-
-    respond_to do |format|
-      if @album.save
-        format.html { redirect_to @album, notice: "Album was successfully created." }
-        format.json { render :show, status: :created, location: @album }
+    @album = Album.new(
+      title: params[:album][:title],
+      description: params[:album][:description],
+      isPublic: params[:album][:isPublic] == "1" ? true : false,
+      user_id: current_user.id
+    )
+    if @album.save
+      files = params[:album][:images]
+      if files
+        files.each do |file|
+          photo = Photo.new(image: file, isPublic: false, user_id: current_user.id)
+          photo.albums << @album
+          photo.save
+        end
+        if @album.save
+          redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.albums')}", notice: "Album was successfully created."  
+        else
+          alert_error(:new)
+        end
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
+        alert_error(:new)
       end
+    else
+      alert_error(:new)
     end
   end
 
   # PATCH/PUT /albums/1 or /albums/1.json
   def update
-    respond_to do |format|
-      if @album.update(album_params)
-        format.html { redirect_to @album, notice: "Album was successfully updated." }
-        format.json { render :show, status: :ok, location: @album }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @album.errors, status: :unprocessable_entity }
+    new_images = params[:album][:images]
+
+    if params[:album][:remove_images].present?
+      params[:album][:remove_images].each do |i|
+        photo = @album.photos.find(i)
+        if photo.title || photo.person_id
+          @album.photos.delete(photo)
+        else
+          photo.destroy!
+        end
       end
+    end
+
+    if new_images.present?
+      new_images.each do |image|
+        photo = Photo.new(image: image, isPublic: false, user_id: current_user.id)
+        photo.albums << @album
+        photo.save
+      end
+    end
+
+    if @album.update(
+      title: params[:album][:title],
+      description: params[:album][:description],
+      isPublic: params[:album][:isPublic] == "1" ? true : false
+    )
+      if current_user.isAdmin
+        redirect_to albums_path, notice: "Album was successfully updated."
+      else
+        redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.albums')}", notice: "Album was successfully updated."
+      end
+    else
+      alert_error(:edit)
     end
   end
 
   # DELETE /albums/1 or /albums/1.json
   def destroy
-    @album.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to albums_path, status: :see_other, notice: "Album was successfully destroyed." }
-      format.json { head :no_content }
+    @album.photos.each do |photo|
+      unless photo.title || photo.person_id
+        photo.destroy!
+      end
+    end
+    if @album.destroy!
+      if current_user.isAdmin
+        redirect_to albums_path, notice: "Album was successfully removed."
+      else
+        redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.albums')}", status: :see_other, notice: "Album was successfully removed."
+      end
+    else
+      redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.albums')}", status: :see_other, alert: "Album was NOT successfully removed."
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_album
-      @album = Album.find(params.expect(:id))
+      @album = Album.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def album_params
-      params.fetch(:album, {})
+      params.require(:album).permit(:title, :description, :isPublic, {images: []}, remove_images: [])
+    end
+
+    def alert_error(page)
+      render page, status: :unprocessable_entity, alert: "Error in #{page == :new ? "creating" : "editing"} a new album."
+    end
+
+    def authenticate_normal_user
+      if user_signed_in?
+        if current_user.isAdmin
+          redirect_to admin_root_path, alert: "Access denied."
+        end
+      else
+        redirect_to root_path, alert: "Access denied."
+      end
     end
 end
