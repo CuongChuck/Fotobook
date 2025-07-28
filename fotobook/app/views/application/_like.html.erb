@@ -1,0 +1,36 @@
+<div class="d-flex flex-row align-items-center">
+    <% if user_signed_in? %>
+        <% if local_assigns[:photo] %>
+            <% if current_user.liked_photos.include?(photo) %>
+                <%= form_with(url: "/like/photo/#{photo.id}", method: :delete, data: { turbo_frame: photo }) do |f| %>
+                    <%= button_tag(type: 'submit', class: "btn like-button") do %>
+                        <i class="fa-solid fa-heart fa-xs like me-1" like="true"></i>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= form_with(url: "/like/photo/#{photo.id}", method: :post, data: { turbo_frame: photo }) do |f| %>
+                    <%= button_tag(type: 'submit', class: "btn like-button") do %>
+                        <i class="fa-solid fa-heart fa-xs like me-1"></i>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% else %>
+            <% if current_user.liked_albums.include?(album) %>
+                <%= form_with(url: "/like/album/#{album.id}", method: :delete, data: { turbo_frame: album }) do |f| %>
+                    <%= button_tag(type: 'submit', class: "btn like-button") do %>
+                        <i class="fa-solid fa-heart fa-xs like me-1" like="true"></i>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= form_with(url: "/like/album/#{album.id}", method: :post, data: { turbo_frame: album }) do |f| %>
+                    <%= button_tag(type: 'submit', class: "btn like-button") do %>
+                        <i class="fa-solid fa-heart fa-xs like me-1"></i>
+                    <% end %>
+                <% end %>
+            <% end %>
+        <% end %>
+    <% else %>
+        <i class="fa-solid fa-heart fa-xs notlike me-1"></i>
+    <% end %>
+    <span><%= local_assigns[:photo] ? photo.user_like_photo.size : album.user_like_album.size %></span>
+</div>
