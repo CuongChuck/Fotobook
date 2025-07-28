@@ -14,7 +14,7 @@
             </thead>
             <tbody class="table-group-divider">
                 <% @users.each do |user| %>
-                    <%= render user %>
+                    <%= render partial: "user", locals: { user: user } %>
                 <% end %>
             </tbody>
         </table>

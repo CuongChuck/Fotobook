@@ -2,9 +2,10 @@
     <td><%= user.fname %></td>
     <td><%= user.lname %></td>
     <td><%= user.email %></td>
-    <td>4:56 am 01/01/2000</td>
-    <td>
-        <a class="me-1" href="./edit-user.html"><button class="btn btn-success rounded-1">Edit</button></a>
-        <button class="btn btn-danger rounded-1">Delete</button>
+    <td><%= l(user.last_sign_in_at.in_time_zone("Asia/Ho_Chi_Minh"), format: :timestamp) if user.last_sign_in_at.present? %></td>
+    <td class="d-flex flex-row">
+        <a class="me-1" href="<%= edit_user_path(user.id) %>"><button class="btn btn-success rounded-1">Edit</button></a>
+        <%= render "application/modal_delete", msg: "user", object: user, url: user_path(user), modal_id: "delete-modal-user-#{user.id}" %>
+        <button class="btn btn-danger rounded-1" data-bs-toggle="modal" data-bs-target="#delete-modal-user-<%= user.id %>">Delete</button>
     </td>
 </tr>
