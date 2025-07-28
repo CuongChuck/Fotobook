@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :authenticate_admin, only: [:index, :edit, :update, :destroy]
 
   # GET /users or /users.json
   def index
@@ -7,8 +9,14 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
-    if request.path.include?('photos')
-      @user = User.includes(:photos).where(id: current_user.id).first
+    if request.path == photos_path
+      render "show", locals: { page: "photos" }
+    elsif request.path.include?(t('path.albums'))
+      render "show", locals: { page: "albums" }
+    elsif request.path == followings_path
+      render "show", locals: { page: "followings" }
+    elsif request.path == followers_path
+      render "show", locals: { page: "followers" }
     end
   end
 
@@ -38,30 +46,78 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    file = params[:user][:avatar]
+    if file
+        result = Cloudinary::Uploader.upload(file.path, folder: "#{@user.id}/photos", transformation: [{ width: 200, crop: :fill }])
+        url = result['secure_url']
+        photo = Photo.new(
+          url: url,
+          user_id: @user.id,
+          person_id: @user.id,
+          isPublic: false
+        )
+        if photo.save
+          @user.avatar = photo
+        else
+          flash[:alert] = "Failed to update avatar."
+          render :edit, status: :unprocessable_entity and return
+        end
       end
+    if @user.update(
+      fname: params[:user][:fname],
+      lname: params[:user][:lname],
+      email: params[:user][:email],
+      password: params[:user][:password],
+      password_confirmation: params[:user][:password_confirmation],
+      isActive: params[:user][:isActive] == "1" ? true : false,
+    )
+      redirect_to "#{t('path.users')}#{t('path.manage')}", notice: "User was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity, alert: "Failed to update user."
     end
   end
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
-      format.json { head :no_content }
+    @user.albums.each do |album|
+      album.destroy!
+    end
+    @user.photos.each do |photo|
+      DeleteAlbumJob.perform_later(photo)
+      photo.destroy!
+    end
+    if @user.avatar.present?
+      public_id = user.avatar.url.match(/upload\/(?:v\d+\/)?(.+)\.\w+$/)[1] 
+      Cloudinary::Uploader.destroy(public_id, invalidate: true)
+    end
+    if user.destroy!
+      redirect_to "#{t('path.users')}#{t('path.manage')}", status: :see_other, notice: "User was successfully destroyed."
+    else
+      redirect_to "#{t('path.users')}#{t('path.manage')}", status: :see_other, alert: "User was NOT successfully destroyed."
     end
   end
 
   private
+    def set_user
+      if params[:user_id]
+        @user = User.find(params[:user_id])
+      else
+        @user = User.find(params[:id])
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def user_params
       params.fetch(:user, {})
+    end
+
+    def authenticate_admin
+      if user_signed_in?
+        unless current_user.isAdmin
+          redirect_to user_root_path, alert: "Access denied."
+        end
+      else
+        redirect_to root_path, alert: "Access denied."
+      end
     end
 end
