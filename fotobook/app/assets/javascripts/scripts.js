@@ -40,7 +40,7 @@ document.addEventListener('turbo:load', () => {
             document.getElementById('album-description').textContent = img.dataset.description;
             const carouselInner = document.querySelector('#carousel .carousel-inner');
             if (carouselInner) {
-                const photoUrls = img.dataset.photos.split(';');
+                const photoUrls = img.dataset.images.split(';');
                 photoUrls.forEach((url, idx) => {
                     const div = document.createElement('div');
                     div.className = 'carousel-item' + (idx === 0 ? ' active' : '');
@@ -49,5 +49,53 @@ document.addEventListener('turbo:load', () => {
                 });
             }
         });
+    });
+
+    const albumModal = document.getElementById('album-content');
+    if (albumModal) {
+        albumModal.addEventListener('hidden.bs.modal', () => {
+            const carouselInner = document.querySelector('#carousel .carousel-inner');
+            if (carouselInner) carouselInner.innerHTML = '';
+        });
+    }
+
+    const input = document.getElementById('avatar-upload-user');
+    const image = document.getElementById('avatar-upload-image-user');
+    if (input && image && input.className.length == 0) {
+        input.addEventListener('change', () => {
+            image.src = URL.createObjectURL(input.files[0]);
+        });
+    }
+
+    const imagesAlbum = document.getElementsByClassName('images-upload')[0];
+    if (imagesAlbum) {
+        imagesAlbum.addEventListener('change', (e) => {
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                const files = e.target.files;
+                for (let file of files) {
+                    const reader = new FileReader();
+                    reader.addEventListener('load', (event) => {
+                        const pic = event.target;
+                        const container = document.querySelector('.album-images');
+                        if (container) {
+                            const img = document.createElement('img');
+                            img.className = "col col-xl-3 col-md-4 col-6";
+                            img.src = pic.result;
+                            container.appendChild(img);
+                        }
+                    });
+                    reader.readAsDataURL(file);
+                }
+            }
+            else {
+                alert('The File APIs are not fully supported in this browser.');
+            }
+        });
+    }
+    
+    const toastElList = document.querySelectorAll(".toast");
+    toastElList.forEach(toastEl => {
+        const toast = new bootstrap.Toast(toastEl);
+        toast.show();
     });
 });
