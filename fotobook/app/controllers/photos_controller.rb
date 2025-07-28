@@ -1,27 +1,24 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
+  before_action :authenticate_normal_user, only: [:create]
 
   # GET /photos or /photos.json
   def index
     if user_signed_in?
       if current_user.isAdmin?
-        @photos = Photo.all.select(:title, :url)
+        @photos = Photo.where.not(title: nil).select(:title, :image, :id).page.page(params[:page]).per(40)
       else
         if request.path != user_root_path
-          @photos = Photo.includes(:user_like_photo, :user).where(isPublic: true)
+          @photos = Photo.include_likes.include_users.public_only
         else
-          @photos = Photo.includes(:user_like_photo, user: [:followees]).where(user_id: current_user.followees.select(:id), isPublic: true)
+          @photos = Photo.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).public_only + Photo.where(user_id: current_user.id)
           render "index", locals: { feed: true }
         end
       end
     else
-      @photos = Photo.includes(:user_like_photo, :user).where(isPublic: true)
+      @photos = Photo.include_likes.include_users.public_only
     end
-  end
-
-  def feed
-    @photos = Photo.includes(:user_like_photo, :user).where(user_id: current_user.followees.select(:id), isPublic: true)
-    render "index", locals: { feed: true }
   end
 
   # GET /photos/1 or /photos/1.json
@@ -30,7 +27,6 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
-    @photo = Photo.new
   end
 
   # GET /photos/1/edit
@@ -39,50 +35,81 @@ class PhotosController < ApplicationController
 
   # POST /photos or /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    file = params[:photo][:image]
+    unless file
+      render :new, status: :unprocessable_entity, alert: "Photo was not uploaded successfully."
+    end
 
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: "Photo was successfully created." }
-        format.json { render :show, status: :created, location: @photo }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+    @photo = Photo.new(
+      title: params[:photo][:title],
+      description: params[:photo][:description],
+      image: file,
+      user_id: current_user.id,
+      isPublic: params[:photo][:sharing_mode] == "1" ? true : false
+    )
+
+    if @photo.save
+      redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.photos')}", notice: "Photo was successfully created."
+    else
+      render :new, status: :unprocessable_entity, alert: "Photo was not created."
     end
   end
 
   # PATCH/PUT /photos/1 or /photos/1.json
   def update
-    respond_to do |format|
-      if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: "Photo was successfully updated." }
-        format.json { render :show, status: :ok, location: @photo }
+    file = params[:photo][:image]
+    if file
+      @photo.remove_image!
+      @photo.save
+      @photo.image = file
+    end
+
+    if @photo.update(
+      title: params[:photo][:title],
+      description: params[:photo][:description],
+      isPublic: params[:photo][:isPublic] == "1" ? true : false
+    )
+      if current_user.isAdmin
+        redirect_to admin_root_path, notice: "Photo was successfully updated."
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.photos')}", notice: "Photo was successfully updated."
       end
+    else
+      render :edit, status: :unprocessable_entity, alert: "Photo was not updated."
     end
   end
 
   # DELETE /photos/1 or /photos/1.json
   def destroy
-    @photo.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to photos_path, status: :see_other, notice: "Photo was successfully destroyed." }
-      format.json { head :no_content }
+    if @photo.destroy!
+      if current_user.isAdmin
+        redirect_to admin_root_path, notice: "Photo was successfully removed."
+      else
+        redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.photos')}", status: :see_other, notice: "Photo was successfully removed."
+      end
+    else
+      render :edit, status: :unprocessable_entity, alert: "Photo was not removed."
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
-      @photo = Photo.find(params.expect(:id))
+      @photo = Photo.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def photo_params
       params.fetch(:photo, {})
+    end
+
+    def authenticate_normal_user
+      if user_signed_in?
+        if current_user.isAdmin
+          redirect_to admin_root_path, alert: "Access denied."
+        end
+      else
+        redirect_to root_path, alert: "Access denied."
+      end
     end
 end
