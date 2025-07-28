@@ -1,4 +1,18 @@
-<div>
-    <input type="checkbox" class="btn-check follow-input" id="follow-<%= user.id %>" autocomplete="off" <%= follow ? "checked" : "" %>>
-    <label id="follow-button" class="btn follow-label rounded-pill p-1" for="follow-<%= user.id %>"><%= follow ? "following" : "follow" %></label>
-</div>
+<% if local_assigns[:unfollow] %>
+    <%= form_with(url: "/unfollow/#{user.id}", method: :delete, data: { turbo_frame: user }) do |f| %>
+        <%= f.check_box :follow, class: "btn-check follow-input", id: "follow-#{user.id}", autocomplete: "off", onchange: "this.form.requestSubmit()" %>
+        <%= f.label :follow, "unfollow", id: "follow-button", class: "btn follow-label rounded-pill p-1 px-2", for: "follow-#{user.id}" %>
+    <% end %>
+<% else %>
+    <% if current_user.followees.include?(user) %>
+        <%= form_with(url: "/follow/#{user.id}", method: :delete, data: { turbo_frame: user }) do |f| %>
+            <%= f.check_box :follow, class: "btn-check follow-input", id: "follow-#{user.id}", autocomplete: "off", checked: true, onchange: "this.form.requestSubmit()" %>
+            <%= f.label :follow, "following", id: "follow-button", class: "btn follow-label rounded-pill p-1 px-2", for: "follow-#{user.id}" %>
+        <% end %>
+    <% else %>
+        <%= form_with(url: "/follow/#{user.id}", method: :post, data: { turbo_frame: user }) do |f| %>
+            <%= f.check_box :follow, class: "btn-check follow-input", id: "follow-#{user.id}", autocomplete: "off", onchange: "this.form.requestSubmit()" %>
+            <%= f.label :follow, "follow", id: "follow-button", class: "btn follow-label rounded-pill p-1 px-2", for: "follow-#{user.id}" %>
+        <% end %>
+    <% end %>
+<% end %>
