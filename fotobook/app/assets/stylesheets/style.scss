@@ -25,6 +25,10 @@ h6 {
     font-weight: 600;
 }
 
+i {
+    cursor: pointer;
+}
+
 span {
     font-size: var(--font-tiny);
     color: var(--primary);
@@ -101,8 +105,18 @@ label {
     
 }
 
+.like-button {
+    padding: 0;
+    border: 0;
+    line-height: 0;
+}
+
 .like {
     color: var(--notlike);
+}
+
+.like[like="true"] {
+    color: var(--primary);
 }
 
 .notlike {
@@ -243,4 +257,16 @@ header {
 
 .small-ava {
     width: 10%;
+}
+
+#avatar-upload-image-user {
+    cursor: pointer
+}
+
+#avatar-upload-user {
+    display: none;
+}
+
+.ava-link {
+    width: 5%;
 }
