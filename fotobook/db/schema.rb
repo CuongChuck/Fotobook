@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_18_083708) do
+ActiveRecord::Schema[7.2].define(version: 2025_07_27_130503) do
   create_table "album_has_photo", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "album_id"
     t.bigint "photo_id"
@@ -31,12 +31,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_18_083708) do
   create_table "photos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.string "url"
+    t.string "image"
     t.bigint "user_id"
     t.bigint "person_id"
     t.boolean "isPublic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "image_processing"
     t.index ["person_id"], name: "index_photos_on_person_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
