@@ -1,12 +1,39 @@
-<% content_for :title, "Editing photo" %>
+<% content_for :title, "Edit Photo" %>
 
-<h1>Editing photo</h1>
-
-<%= render "form", photo: @photo %>
-
-<br>
-
-<div>
-  <%= link_to "Show this photo", @photo %> |
-  <%= link_to "Back to photos", photos_path %>
+<div class="d-flex flex-row">
+    <%= render "navbar" %>
+    <div class="bg-white mt-3 pt-3 w-75 container">
+        <%= render "application/edit_header", title: "Edit Photo" %>
+        <%= form_for(@photo, as: :photo, url: photo_path(@photo), method: :put, local: true, html: { multipart: true }) do |f| %>
+            <div class="d-flex flex-row justify-content-between mt-3">
+                <div class="new-field">
+                    <div class="mb-4">
+                        <%= f.label :title, class: "form-label text-body" %>
+                        <%= f.text_field :title, class: "form-control", placeholder: "Photo Title", required: true %>
+                    </div>
+                    <div class="mb-4">
+                        <%= f.label :sharing_mode, class: "form-label text-body" %>
+                        <%= f.select :isPublic, options_for_select([["Public", 1], ["Private", 0]], @photo.isPublic), {}, { class: "form-select" } %>
+                    </div>
+                    <div class="avatar-upload-container position-relative mb-2 photo-upload">
+                        <label for="avatar-upload-user">
+                            <%= image_tag @photo.image.url ? @photo.image.url : "image-regular.svg", class: "w-100", id: "avatar-upload-image-user" %>
+                        </label>
+                        <%= f.hidden_field :image_cache %>
+                        <%= f.file_field :image, id: "avatar-upload-user", accept: "image/jpeg,image/png,image/gif" %>
+                    </div>
+                    <%= f.submit "Save", class: "btn btn-success mt-5" %>
+                </div>
+                <div class="new-field">
+                    <%= f.label :description, class: "form-label" %>
+                    <%= f.text_area :description, class: "form-control", rows: 5, placeholder: "Photo Description", required: true %>
+                </div>
+            </div>
+        <% end %>
+        <%= render "application/modal_delete", msg: "photo", object: @photo, url: photo_path(@photo), modal_id: "delete-photo-#{@photo.id}" %>
+        <button class="btn btn-danger my-3" data-bs-toggle="modal" data-bs-target="#delete-photo-<%= @photo.id %>">
+            <i class="fa-solid fa-trash me-1"></i>
+            Delete
+        </button>
+    </div>
 </div>

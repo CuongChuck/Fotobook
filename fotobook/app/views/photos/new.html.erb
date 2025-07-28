@@ -1,11 +1,34 @@
-<% content_for :title, "New photo" %>
+<% content_for :title, "New Photo" %>
 
-<h1>New photo</h1>
-
-<%= render "form", photo: @photo %>
-
-<br>
-
-<div>
-  <%= link_to "Back to photos", photos_path %>
+<div class="d-flex flex-row">
+    <%= render "navbar" %>
+    <div class="bg-white mt-3 pt-3 w-75 container">
+        <%= render partial: "edit_header", locals: { title: "New Photo" } %>
+        <%= form_with(model: Photo, as: :photo, url: user_photos_path, method: :post, local: true) do |f| %>
+            <div class="d-flex flex-row justify-content-between mt-3">
+                <div class="new-field">
+                    <div class="mb-4">
+                        <%= f.label :title, class: "form-label text-body" %>
+                        <%= f.text_field :title, class: "form-control", placeholder: "Photo Title", required: true %>
+                    </div>
+                    <div class="mb-4">
+                        <%= f.label :sharing_mode, class: "form-label text-body" %>
+                        <%= f.select :sharing_mode, options_for_select([["Public", 1], ["Private", 0]], selected: 1), {}, { class: "form-select" } %>
+                    </div>
+                    <div class="avatar-upload-container position-relative mb-2 photo-upload">
+                        <label for="avatar-upload-user">
+                            <%= image_tag "square-plus-regular.jpg", class: "w-100", id: "avatar-upload-image-user" %>
+                        </label>
+                        <%= f.file_field :image, id: "avatar-upload-user", accept: "image/jpeg,image/png,image/gif", required: true %>
+                        <%= f.hidden_field :image_cache %>
+                    </div>
+                    <%= f.submit "Save", class: "btn btn-success my-5" %>
+                </div>
+                <div class="new-field">
+                    <%= f.label :description, class: "form-label" %>
+                    <%= f.text_area :description, class: "form-control", rows: 5, placeholder: "Photo Description", required: true %>
+                </div>
+            </div>
+        <% end %>
+    </div>
 </div>
