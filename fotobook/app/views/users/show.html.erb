@@ -1,10 +1,36 @@
+<% content_for :title, "#{@user.fname} #{@user.lname} Profile" %>
+
 <div class="d-flex flex-row">
     <%= render "navbar" %>
     <div class="bg-white mt-3 pt-3 w-75 container justify-content-center">
-        <profile-header page="photo"></profile-header>
-        <a href="./new-photo.html"><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Photo</button></a>
+        <%= render "application/profile_header", page: local_assigns[:page], user: @user %>
+        <% if local_assigns[:page] == "photo" && @user == current_user %>
+            <a href=<%= new_user_photo_path %>><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Photo</button></a>
+        <% elsif local_assigns[:page] == "album" && @user == current_user %>
+            <a href=<%= new_user_album_path %>><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Album</button></a>
+        <% end %>
         <div class="post-container row d-flex mt-5">
-            <profile-media self="true" private="true" class="col-6 col-md-4 col-lg-3"></profile-media>
+            <% if local_assigns[:page] == "photos" %>
+                <% @user.photos.each do |photo| %>
+                    <%= render "application/profile_media", isSelf: @user == current_user, isPrivate: !photo.isPublic, photo: photo %>
+                <% end %>
+            <% elsif local_assigns[:page] == "albums" %>
+                <% @user.albums.each do |album| %>
+                    <%= render "application/profile_media", isSelf: @user == current_user, isPrivate: !album.isPublic, isAlbum: true, album: album %>
+                <% end %>
+            <% elsif local_assigns[:page] == "followings" %>
+                <% @user.followees.each do |followee| %>
+                    <%= turbo_frame_tag followee do %>
+                        <%= render "application/profile_follow", user: followee %>
+                    <% end %>
+                <% end %>
+            <% elsif local_assigns[:page] == "followers" %>
+                <% @user.followers.each do |follower| %>
+                    <%= turbo_frame_tag follower do %>
+                        <%= render "application/profile_follow", user: follower %>
+                    <% end %>
+                <% end %>
+            <% end %>
         </div>
     </div>
 </div>

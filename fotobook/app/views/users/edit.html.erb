@@ -1,12 +1,51 @@
-<% content_for :title, "Editing user" %>
+<% content_for :title, "Edit User" %>
 
-<h1>Editing user</h1>
-
-<%= render "form", user: @user %>
-
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+<div class="d-flex flex-row">
+    <%= render partial: "navbar", locals: { page: "user" } %>
+    <div class="bg-white mt-3 pt-3 w-75 container">
+        <%= render "application/edit_header", title: "Edit User Profile" %>
+        <%= form_for(@user, url: user_path(@user.id), method: :put, local: true, html: { multipart: true }) do |f| %>
+            <div class="edit-profile-admin d-flex flex-column align-items-center mt-5">
+                <div class="avatar-upload-container position-relative mb-2">
+                    <%= image_tag(@user.avatar ? @user.avatar.image.url : "image-regular.svg", class: "w-100", id: "avatar-upload-image-user") %>
+                    <%= f.file_field :avatar, class: "btn-check", id: "avatar-upload-user", autocomplete: "off" %>
+                    <label class="change btn btn-light fw-normal position-absolute bottom-0 start-50 translate-middle" for="avatar-upload-user">CHANGE</label>
+                </div>
+                <div class="edit-info mt-3">
+                    <h6 class="edit-info-title text-center mb-3">Basic Information</h6>
+                    <div class="row align-items-center mb-3">
+                        <label for="input-fname" class="col col-4 text-end">First Name</label>
+                        <div class="col">
+                            <%= f.text_field :fname, class: "form-control rounded-1", id: "input-fname", placeholder: "First Name", required: true %>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mb-3">
+                        <label for="input-lname" class="col col-4 text-end">Last Name</label>
+                        <div class="col">
+                            <%= f.text_field :lname, class: "form-control rounded-1", id: "input-lname", placeholder: "Last Name", required: true %>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mb-3">
+                        <label for="input-email" class="col col-4 text-end">Email</label>
+                        <div class="col">
+                            <%= f.email_field :email, class: "form-control rounded-1", id: "input-email", placeholder: "Email", required: true %>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mb-3">
+                        <label for="input-password" class="col col-4 text-end">Password</label>
+                        <div class="col">
+                            <%= f.password_field :password, class: "form-control rounded-1", id: "input-password", placeholder: "Password", required: true %>
+                        </div>
+                    </div>
+                    <div class="row align-items-center mb-3">
+                        <label for="input-active" class="col col-4 text-end">Active?</label>
+                        <div class="col">
+                            <%= f.check_box :isActive, class: "form-check", id: "input-active" %>
+                        </div>
+                    </div>
+                </div>
+                <%= f.submit "Save", class: "btn btn-success rounded-1 mb-5" %>
+            </div>
+        <% end %>
+    </div>
 </div>
