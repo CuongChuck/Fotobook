@@ -1,33 +1,37 @@
 <div class="col col-12 col-lg-6">    
     <div class="d-flex flex-row bg-body-secondary p-1 post my-2 mx-2">
-        <img class="w-50 h-100 album-image" src=<%= album.photos[0].url %> data-bs-toggle="modal" data-bs-target="#album-content" 
-        data-title="<%= album.title %>" data-description="<%= album.description %>" data-photos="<%= album.photos.map(&:url).join(';') %>">
+        <% if album.photos %>
+            <img class="w-50 h-100 album-image" src=<%= album.photos[0].image.url ? album.photos[0].image.url : asset_path("image-regular.svg") %> data-bs-toggle="modal" data-bs-target="#album-content"
+            data-title="<%= album.title %>" data-description="<%= album.description %>" data-images="<%= album.photos.map { |photo| photo.image.url }.join(';') %>">
+        <% end %>
         <div class="container d-grid pe-1">
             <div class="d-flex flex-row justify-content-between align-items-center">
                 <div class="d-flex flex-row">
                     <% if album.user.avatar %>
-                        <img class="rounded-circle small-ava" src=<%= album.user.avatar.url %> alt=<%= album.user.fname + " " + album.user.lname %>>
+                        <img class="rounded-circle small-ava" src=<%= album.user.avatar.image.url %> alt=<%= album.user.fname + " " + album.user.lname %>>
                     <% else %>
                         <%= render partial: "application/ava", locals: { fname: album.user.fname, lname: album.user.lname } %>
                     <% end %>
                     <% if user_signed_in? %>
-                        <a href="#" class="my-auto mx-2">
+                        <a href="<%= t('path.users') + "/#{album.user.id}" + t('path.albums') %>" class="my-auto mx-2">
                             <h6 class="my-auto postor"><%= "#{album.user.fname} #{album.user.lname}" %></h6>
                         </a>
                     <% else %>
                         <h6 class="my-auto postor mx-2"><%= "#{album.user.fname} #{album.user.lname}" %></h6>
-                    <% end %>                </div>
-                <% if local_assigns[:follow] %>
-                    <%= render partial: "application/follow", locals: { user: album.user, follow: current_user.followees.include?(album.user) } %>
+                    <% end %>
+                </div>
+                <% if !local_assigns[:follow] && user_signed_in? %>
+                    <%= turbo_frame_tag album.user, class: "follow-button-#{album.user.id}" do %>
+                        <%= render partial: "application/follow", locals: { user: album.user } %>
+                    <% end %>
                 <% end %>
             </div>
             <h5 class="fs-5 mt-2 text-center post-title"><%= album.title %></h5>
             <p class="post-description"><%= album.description %></p>
             <div class="d-flex flex-row justify-content-between align-items-center align-self-end">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa-solid fa-heart fa-xs <%= user_signed_in? ? "like" : "notlike" %> me-1"></i>
-                    <span><%= album.user_like_album.size %></span>
-                </div>
+                <%= turbo_frame_tag album do %>
+                    <%= render partial: "application/like", locals: { album: album } %>
+                <% end %>
                 <p class="time my-0"><%= l album.updated_at.in_time_zone("Asia/Ho_Chi_Minh"), format: :timestamp %></p>
             </div>
         </div>
