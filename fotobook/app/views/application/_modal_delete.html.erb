@@ -1,0 +1,16 @@
+<div class="modal fade" tabindex="-1" aria-hidden="true" id=<%= local_assigns[:modal_id] %>>
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="m-0">Are you sure you want to delete this <%= local_assigns[:msg] %>?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <%= form_for(local_assigns[:object], url: local_assigns[:url], method: :delete, local: true) do |f| %>
+                    <%= f.submit "Confirm", class: "btn btn-danger" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
