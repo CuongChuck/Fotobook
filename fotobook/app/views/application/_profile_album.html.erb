@@ -1,0 +1,21 @@
+<div class="col-6 col-md-4 col-lg-3">
+    <div class="m-3">
+        <div class="position-relative">
+            <% if local_assigns[:album].photos.present? %>
+                <img class="rounded w-100 album-image" src=<%= local_assigns[:album].photos[0].image.url %> alt="Media Album"  data-bs-toggle="modal" data-bs-target="#album-content"
+            data-title="<%= album.title %>" data-description="<%= album.description %>" data-images="<%= album.photos.map { |photo| photo.image.url }.join(';') %>">
+            <% end %>
+            <% if local_assigns[:isPrivate] %>
+                <i class="fa-solid fa-lock bg-white position-absolute rounded-circle p-1 top-0 end-0"></i>
+            <% end %>
+            <% if local_assigns[:isSelf] && %>
+                <a href="<%= edit_album_path(local_assigns[:album].id) %>"><button class="btn edit-media-button rounded-pill position-absolute bottom-0 end-0 py-0 px-1 text-white">EDIT</button></a>
+            <% end %>
+            <div class="rounded-circle fw-bold p-3 photo-counter position-absolute top-50 start-50 translate-middle text-center text-white">
+                <div class="m-0 fs-2"><%= local_assigns[:album].photos.count %></div>
+                <div class="fs-lg-2 fs-sm-4">PHOTOS</div>
+            </div>
+        </div>
+        <div class="text-center mt-2"><%= local_assigns[:album].title %></div>
+    </div>
+</div>
