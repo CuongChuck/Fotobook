@@ -7,17 +7,17 @@ class PhotosController < ApplicationController
   def index
     if user_signed_in?
       if current_user.isAdmin?
-        @photos = Photo.where.not(title: nil).select(:title, :image, :id).page.page(params[:page]).per(40)
+        @photos = Photo.photo_only.select(:title, :image, :id).page.page(params[:page]).per(40)
       else
         if request.path != user_root_path
-          @photos = Photo.include_likes.include_users.public_only
+          @photos = Photo.photo_only.include_likes.include_users.public_only
         else
-          @photos = Photo.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).public_only + Photo.where(user_id: current_user.id)
+          @photos = Photo.photo_only.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).public_only + Photo.where(user_id: current_user.id).photo_only
           render "index", locals: { feed: true }
         end
       end
     else
-      @photos = Photo.include_likes.include_users.public_only
+      @photos = Photo.photo_only.include_likes.include_users.public_only
     end
   end
 

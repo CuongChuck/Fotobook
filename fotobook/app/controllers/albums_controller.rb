@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
   def index
     if user_signed_in?
       if current_user.isAdmin?
-        @albums = Album.include_photos.select(:title)
+        @albums = Album.include_photos
       else
         if request.path.include?("/discover")
           @albums = Album.include_photos.include_likes.include_users.public_only
@@ -50,7 +50,7 @@ class AlbumsController < ApplicationController
           photo.save
         end
         if @album.save
-          redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.albums')}", notice: "Album was successfully created."  
+          redirect_to "#{t('path.users')}/#{current_user.id}#{t('path.albums')}", notice: "Album was successfully created."
         else
           alert_error(:new)
         end
