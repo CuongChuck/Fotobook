@@ -1,36 +1,54 @@
 <% content_for :title, "#{@user.fname} #{@user.lname} Profile" %>
 
 <div class="d-flex flex-row">
-    <%= render "navbar" %>
+    <% if user_signed_in? %>
+        <%= render "navbar" %>
+    <% end %>
     <div class="bg-white mt-3 pt-3 w-75 container justify-content-center">
         <%= render "application/profile_header", page: local_assigns[:page], user: @user %>
-        <% if local_assigns[:page] == "photo" && @user == current_user %>
-            <a href=<%= new_user_photo_path %>><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Photo</button></a>
-        <% elsif local_assigns[:page] == "album" && @user == current_user %>
-            <a href=<%= new_user_album_path %>><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Album</button></a>
+        <% if @user == current_user %>
+            <% if local_assigns[:page] == "photos" %>
+                <a href=<%= new_user_photo_path %>><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Photo</button></a>
+            <% elsif local_assigns[:page] == "albums" %>
+                <a href=<%= new_user_album_path %>><button class="btn btn-success rounded-pill fw-bold py-1 float-end">Add Album</button></a>
+            <% end %>
         <% end %>
         <div class="post-container row d-flex mt-5">
             <% if local_assigns[:page] == "photos" %>
-                <% @user.photos.each do |photo| %>
-                    <%= render "application/profile_media", isSelf: @user == current_user, isPrivate: !photo.isPublic, photo: photo %>
+                <% if @user == current_user %>
+                    <% @user.photos.photo_only.each do |photo| %>
+                        <%= render "application/profile_media", isSelf: true, isPrivate: !photo.isPublic, photo: photo %>
+                    <% end %>
+                <% else %>
+                    <% @user.photos.public_only.each do |photo| %>
+                        <%= render "application/profile_media", isSelf: false, isPrivate: false, photo: photo %>
+                    <% end %>
                 <% end %>
             <% elsif local_assigns[:page] == "albums" %>
-                <% @user.albums.each do |album| %>
-                    <%= render "application/profile_media", isSelf: @user == current_user, isPrivate: !album.isPublic, isAlbum: true, album: album %>
+                <% if @user == current_user %>
+                    <% @user.albums.each do |album| %>
+                        <%= render "application/profile_album", isSelf: true, isPrivate: !album.isPublic, album: album %>
+                    <% end %>
+                <% else %>
+                    <% @user.albums.public_only.each do |album| %>
+                        <%= render "application/profile_album", isSelf: false, isPrivate: false, album: album %>
+                    <% end %>
                 <% end %>
             <% elsif local_assigns[:page] == "followings" %>
                 <% @user.followees.each do |followee| %>
-                    <%= turbo_frame_tag followee do %>
+                    <%= turbo_frame_tag followee, class: "col-6 col-md-4 col-lg-3" do %>
                         <%= render "application/profile_follow", user: followee %>
                     <% end %>
                 <% end %>
             <% elsif local_assigns[:page] == "followers" %>
                 <% @user.followers.each do |follower| %>
-                    <%= turbo_frame_tag follower do %>
+                    <%= turbo_frame_tag follower, class: "col-6 col-md-4 col-lg-3" do %>
                         <%= render "application/profile_follow", user: follower %>
                     <% end %>
                 <% end %>
             <% end %>
         </div>
+        <%= render(partial: "application/modal") %>
+        <%= render(partial: "application/modal_album") %>
     </div>
 </div>
