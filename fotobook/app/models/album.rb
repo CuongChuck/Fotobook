@@ -1,8 +1,8 @@
 class Album < ApplicationRecord
     default_scope { order(created_at: :desc) }
 
-    scope :include_photos, -> { includes(photos: [:image]) }
-    scope :include_likes, -> { includes(:user_like_photo) }
+    scope :include_photos, -> { includes(:photos) }
+    scope :include_likes, -> { includes(:user_like_album) }
     scope :public_only, -> { where(isPublic: true) }
     scope :include_users, -> { includes(:user) }
 
