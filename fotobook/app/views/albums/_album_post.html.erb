@@ -7,11 +7,13 @@
         <div class="container d-grid pe-1">
             <div class="d-flex flex-row justify-content-between align-items-center">
                 <div class="d-flex flex-row">
-                    <% if album.user.avatar %>
-                        <img class="rounded-circle small-ava" src=<%= album.user.avatar.image.url %> alt=<%= album.user.fname + " " + album.user.lname %>>
-                    <% else %>
-                        <%= render partial: "application/ava", locals: { fname: album.user.fname, lname: album.user.lname } %>
-                    <% end %>
+                    <a href="<%= t('path.users') + "/#{album.user.id}" + t('path.albums') %>">
+                        <% if album.user.avatar %>
+                            <img class="rounded-circle small-ava" src=<%= album.user.avatar.image.url %> alt=<%= album.user.fname + " " + album.user.lname %>>
+                        <% else %>
+                            <%= render partial: "application/ava", locals: { fname: album.user.fname, lname: album.user.lname } %>
+                        <% end %>
+                    </a>
                     <% if user_signed_in? %>
                         <a href="<%= t('path.users') + "/#{album.user.id}" + t('path.albums') %>" class="my-auto mx-2">
                             <h6 class="my-auto postor"><%= "#{album.user.fname} #{album.user.lname}" %></h6>
@@ -20,7 +22,7 @@
                         <h6 class="my-auto postor mx-2"><%= "#{album.user.fname} #{album.user.lname}" %></h6>
                     <% end %>
                 </div>
-                <% if !local_assigns[:follow] && user_signed_in? %>
+                <% if !local_assigns[:follow] && user_signed_in? && (album.user.id != current_user.id) %>
                     <%= turbo_frame_tag album.user, class: "follow-button-#{album.user.id}" do %>
                         <%= render partial: "application/follow", locals: { user: album.user } %>
                     <% end %>
@@ -32,7 +34,7 @@
                 <%= turbo_frame_tag album do %>
                     <%= render partial: "application/like", locals: { album: album } %>
                 <% end %>
-                <p class="time my-0"><%= l album.updated_at.in_time_zone("Asia/Ho_Chi_Minh"), format: :timestamp %></p>
+                <p class="time my-0"><%= l album.updated_at, format: :timestamp %></p>
             </div>
         </div>
     </div>
