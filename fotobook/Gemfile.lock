@@ -247,7 +247,6 @@ GEM
     minitest (5.25.5)
     msgpack (1.8.0)
     multipart-post (2.4.1)
-    mysql2 (0.5.6)
     net-http (0.6.0)
       uri
     net-imap (0.5.9)
@@ -284,6 +283,9 @@ GEM
     parser (3.3.8.0)
       ast (~> 2.4.1)
       racc
+    pg (1.6.0)
+    pg (1.6.0-aarch64-linux)
+    pg (1.6.0-x86_64-linux)
     popper_js (2.11.8)
     pp (0.6.2)
       prettyprint
@@ -536,13 +538,13 @@ DEPENDENCIES
   jquery-rails
   kamal
   kaminari
-  mysql2 (~> 0.5)
+  pg
   propshaft
   puma (>= 5.0)
   rails (~> 7.2, >= 7.2.2.1)
   rubocop-rails-omakase
   selenium-webdriver
-  sidekiq (~> 8.0)
+  sidekiq
   solargraph
   solid_cable
   solid_cache
