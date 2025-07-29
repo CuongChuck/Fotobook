@@ -7,37 +7,32 @@ class Users::RegistrationsController < Devise::RegistrationsController
     self.resource = User.to_adapter.get!(send(:"current_#{resource_name}").to_key)
 
     if params[:user][:password].present? && params[:user][:password_confirmation].present? && params[:user][:current_password].present?
-      if resource.update_with_password(user_params)
+      if resource.update_with_password(current_password: params[:user][:current_password], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
         bypass_sign_in resource
         redirect_to after_update_path_for(resource), notice: 'Password updated successfully.'
       else
+        flash[:now] = resource.errors.full_messages.join(', ')
         render :edit, status: :unprocessable_entity
       end
     elsif params[:user][:fname].present? || params[:user][:lname].present? || params[:user][:email].present?
-      if params[:user][:avatar]
-        file = params[:user][:avatar]
-        if file
-          result = Cloudinary::Uploader.upload(file.path, folder: "#{current_user.id}/photos", transformation: [{ width: 200, crop: :fill }])
-          url = result['secure_url']
-        end
-
-        @photo = Photo.new(
-          url: url,
+      file = params[:user][:avatar]
+      if file
+        photo = Photo.new(
+          image: file,
           user_id: current_user.id,
           person_id: current_user.id,
           isPublic: false
         )
-
-        unless @photo.save
-          @photo.errors.full_messages.each do |msg|
-            render html: msg, status: :unprocessable_entity and return
-          end
+        unless photo.save
+          flash[:now] = photo.errors.full_messages.join(', ')
+          render :edit, status: :unprocessable_entity and return
         end
       end
-      if resource.update(fname: params[:user][:fname], lname: params[:user][:lname], email: params[:user][:email])
+      if resource.update_without_password(fname: params[:user][:fname], lname: params[:user][:lname], email: params[:user][:email])
         redirect_to after_update_path_for(resource), notice: 'Profile updated successfully.'
       else
-        render :edit, status: :unprocessable_entity and return
+        flash[:now] = resource.errors.full_messages.join(', ')
+        render :edit, status: :unprocessable_entity  and return
       end
     else
       redirect_to after_update_path_for(resource), notice: 'No valid changes made.'
