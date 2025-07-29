@@ -61,7 +61,7 @@ document.addEventListener('turbo:load', () => {
 
     const input = document.getElementById('avatar-upload-user');
     const image = document.getElementById('avatar-upload-image-user');
-    if (input && image && input.className.length == 0) {
+    if (input && image && input.className != "images-upload") {
         input.addEventListener('change', () => {
             image.src = URL.createObjectURL(input.files[0]);
         });
