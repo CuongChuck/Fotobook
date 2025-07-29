@@ -4,10 +4,10 @@
     <%= render "navbar" %>
     <div class="bg-white mt-3 pt-3 w-75 container">
         <%= render "edit_header", title: "Edit User Profile" %>
-        <%= form_for(@user, as: :user, url: "/signup/edit", method: :put) do |f| %>
+        <%= form_for(@user, as: :user, url: "/signup/edit", method: :put, local: true) do |f| %>
             <div class="edit-profile-admin d-flex flex-column align-items-center mt-3">
                 <div class="avatar-upload-container position-relative mb-2">
-                    <%= image_tag @user.avatar ? @user.avatar.url : "image-regular.svg", class: "w-100", id: "avatar-upload-image-user" %>
+                    <%= image_tag @user.avatar ? @user.avatar.image.url : "image-regular.svg", class: "w-100", id: "avatar-upload-image-user" %>
                     <%= f.file_field :avatar, class: "btn-check", id: "avatar-upload-user", autocomplete: "off", accept: "image/jpeg,image/png" %>
                     <label class="change btn btn-light fw-normal position-absolute bottom-0 start-50 translate-middle" for="avatar-upload-user">CHANGE</label>
                 </div>
@@ -35,7 +35,7 @@
                 <%= f.submit "Save", class: "btn btn-success rounded-1 mb-5" %>
             </div>
         <% end %>
-        <%= form_for(@user, as: :user, url: "/signup/edit", method: :put) do |f| %>
+        <%= form_for(@user, as: :user, url: "/signup/edit", method: :put, local: true) do |f| %>
             <div class="edit-profile-admin d-flex flex-column align-items-center mt-3">
                 <div class="edit-info">
                     <h6 class="edit-info-title text-center mb-3">Password</h6>
