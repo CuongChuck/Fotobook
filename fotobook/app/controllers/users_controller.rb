@@ -48,21 +48,22 @@ class UsersController < ApplicationController
   def update
     file = params[:user][:avatar]
     if file
-        result = Cloudinary::Uploader.upload(file.path, folder: "#{@user.id}/photos", transformation: [{ width: 200, crop: :fill }])
-        url = result['secure_url']
-        photo = Photo.new(
-          url: url,
-          user_id: @user.id,
-          person_id: @user.id,
-          isPublic: false
-        )
-        if photo.save
-          @user.avatar = photo
-        else
-          flash[:alert] = "Failed to update avatar."
-          render :edit, status: :unprocessable_entity and return
-        end
+      photo = Photo.new(
+        image: file,
+        user_id: @user.id,
+        person_id: @user.id,
+        isPublic: false
+      )
+      if @user.avatar
+        @user.avatar.remove_image!
+        @user.save
       end
+      if photo.save
+        @user.avatar = photo
+      else
+        render :edit, status: :unprocessable_entity, alert: "Failed to update avatar." and return
+      end
+    end
     if @user.update(
       fname: params[:user][:fname],
       lname: params[:user][:lname],
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
       password_confirmation: params[:user][:password_confirmation],
       isActive: params[:user][:isActive] == "1" ? true : false,
     )
-      redirect_to "#{t('path.users')}#{t('path.manage')}", notice: "User was successfully updated."
+      redirect_to users_path, notice: "User was successfully updated."
     else
       render :edit, status: :unprocessable_entity, alert: "Failed to update user."
     end
@@ -83,17 +84,16 @@ class UsersController < ApplicationController
       album.destroy!
     end
     @user.photos.each do |photo|
-      DeleteAlbumJob.perform_later(photo)
       photo.destroy!
     end
-    if @user.avatar.present?
-      public_id = user.avatar.url.match(/upload\/(?:v\d+\/)?(.+)\.\w+$/)[1] 
-      Cloudinary::Uploader.destroy(public_id, invalidate: true)
+    if @user.avatar
+      @user.avatar.remove_image!
+      @user.save
     end
-    if user.destroy!
-      redirect_to "#{t('path.users')}#{t('path.manage')}", status: :see_other, notice: "User was successfully destroyed."
+    if @user.destroy!
+      redirect_to users_path, status: :see_other, notice: "User was successfully destroyed."
     else
-      redirect_to "#{t('path.users')}#{t('path.manage')}", status: :see_other, alert: "User was NOT successfully destroyed."
+      redirect_to users_path, status: :see_other, alert: "User was NOT successfully destroyed."
     end
   end
 
