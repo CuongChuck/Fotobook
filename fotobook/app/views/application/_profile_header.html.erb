@@ -5,20 +5,24 @@
         <%= render partial: "ava", locals: { fname: user.fname, lname: user.lname, classname: "fs-1 p-5 me-4" } %>
     <% end %>
     <div class="d-flex flex-column">
-        <% if params[:user_id] != current_user.id.to_s %>
-            <%= render "follow", user: local_assigns[:user] %>
-        <% else %>
-            <button onclick="window.open('<%= edit_user_registration_path %>', '_self')" class="btn edit-profile-button rounded-pill py-1">Edit Profile</button>
+        <% if user_signed_in? %>
+            <% if params[:user_id] != current_user.id.to_s %>
+                <%= turbo_frame_tag user, class: "follow-button-#{user.id}" do %>
+                    <%= render partial: "follow", locals: { user: user } %>
+                <% end %>
+            <% else %>
+                <button onclick="window.open('<%= edit_user_registration_path %>', '_self')" class="btn edit-profile-button rounded-pill py-1">Edit Profile</button>
+            <% end %>
         <% end %>
         <h1 class="text-black my-3"><%= "#{user.fname} #{user.lname}" %></h1>
         <div class="d-flex flex-wrap">
-            <a href=<%= photos_path %> class="profile-tab" select=<%= page == "photos" ? "true" : "false" %>><span class="fs-3"><%= user.photos.photo_only.count %></span> PHOTOS</a>
+            <a href=<%= photos_path %> class="profile-tab" select=<%= page == "photos" ? "true" : "false" %>><span class="fs-3"><%= user.photos.photo_only.size %></span> PHOTOS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=<%= "#{t('path.users')}/#{params[:user_id]}#{t('path.albums')}" %> class="profile-tab" select=<%= page == "albums" ? "true" : "false" %>><span class="fs-3"><%= user.albums.count %></span> ALBUMS</a>
+            <a href=<%= "#{t('path.users')}/#{params[:user_id]}#{t('path.albums')}" %> class="profile-tab" select=<%= page == "albums" ? "true" : "false" %>><span class="fs-3"><%= user.albums.size %></span> ALBUMS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=<%= followings_path %> class="profile-tab" select=<%= page == "followings" ? "true" : "false" %>><span class="fs-3"><%= user.followees.count %></span> FOLLOWINGS</a>
+            <a href=<%= followings_path %> class="profile-tab" select=<%= page == "followings" ? "true" : "false" %>><span class="fs-3"><%= user.followees.size %></span> FOLLOWINGS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=<%= followers_path %> class="profile-tab" select=<%= page == "followers" ? "true" : "false" %>><span class="fs-3"><%= user.followers.count %></span> FOLLOWERS</a>
+            <a href=<%= followers_path %> class="profile-tab" select=<%= page == "followers" ? "true" : "false" %>><span class="fs-3"><%= user.followers.size %></span> FOLLOWERS</a>
         </div>
     </div>
 </div>

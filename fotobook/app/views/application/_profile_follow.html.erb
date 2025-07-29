@@ -1,5 +1,5 @@
 <% if @user.followees.include?(user) || @user.followers.include?(user) %>
-    <div class="col-6 col-md-4 col-lg-3">
+    <div>
         <div class="bg-body-tertiary rounded mx-1 my-4 py-3 d-flex flex-column align-items-center">
             <% if user.avatar %>
                 <img src="<%= user.avatar.image.url %>" class="rounded-circle w-50">
@@ -12,7 +12,9 @@
                 <div class="text-center fs-3 fw-bold tagnum"><%= user.albums.count %><div class="tag fw-normal">ALBUMS</div></div>
             </div>
             <% if current_user != user %>
-                <%= render partial: "follow", locals: { user: user, unfollow: (request.path == followings_path(current_user.id)) ? true : false } %>
+                <%= turbo_frame_tag user, class: "follow-button-#{user.id}" do %>
+                    <%= render partial: "follow", locals: { user: user, unfollow: (request.path == followings_path(current_user.id)) ? true : false } %>
+                <% end %>
             <% end %>
         </div>
     </div>
