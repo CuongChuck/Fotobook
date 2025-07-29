@@ -34,3 +34,19 @@ Create a photo-based social media.
     - [Guest Feed](https://drive.google.com/file/d/1-2YNmHEKIlV8phzQsrtpXaBUrGNh2f1o/view?usp=sharing)
     - [User Feed & Discover](https://drive.google.com/file/d/1o52mxG09fOPOKJhzUfq6-EAN8DdvF6n-/view?usp=sharing)
     - [Like](https://drive.google.com/file/d/1BBA0Cu7GZguZBSfiUnKqZHRl19OKfQyt/view?usp=sharing)
+    - [Inactivate User Account](https://drive.google.com/file/d/175fVT1Dl7LZHKjkzD56r9Na5AXP3YUVd/view?usp=sharing)
+
+5. Other User Profile
+    - [Tab Photos](https://drive.google.com/file/d/1gw0OXWkBjm2vgdmEs02nt0moospt4EG_/view?usp=sharing)
+    - [Tab Albums](https://drive.google.com/file/d/1JnnvkYDGWJznUydm5_FNQYYl-Rltolxd/view?usp=sharing)
+    - [Tab Followings](https://drive.google.com/file/d/1YwALlWtx9sFQ4TNr5s9_sgbVuOFojX9V/view?usp=sharing)
+    - [Tab Followers](https://drive.google.com/file/d/16XP8UWoKWzitqAh9csdBqSwlTYdlmSkL/view?usp=sharing)
+    - [Follow/Unfollow User](https://drive.google.com/file/d/1PDEGer7ZOvzVXq3es_ENF1id1L5ND4Q3/view?usp=sharing)
+
+6. My User Profile
+    - [Tab Photos](https://drive.google.com/file/d/1ZbD4bDPh1MZSRxAAa7qLegHZ0ymdm_46/view?usp=sharing)
+    - [Tab Albums](https://drive.google.com/file/d/17tQmGyRz7vRd-w4H7XMltHxEiNZFVjAI/view?usp=sharing)
+    - [Tab Followings](https://drive.google.com/file/d/1CyP2sv8X8PQGBrzLek-U6CunpJgOrtik/view?usp=sharing)
+    - [Tab Followers](https://drive.google.com/file/d/1Qf4Nt3ckYsLuQYMMJ6jKAKAI05UQgAMs/view?usp=sharing)
+
+7. Active Job - Sidekiq for uploading photos
