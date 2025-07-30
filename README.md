@@ -6,8 +6,12 @@ Website: [Fotobook](https://fotobook-i2ak.onrender.com/)
 
 **Testing**
 
-Admin account:
+1. Admin account:
     - Email: admin@fotobook.com
+    - Password: 1
+
+2. User account:
+    - Email: abc@gmail.com
     - Password: 1
 
 
