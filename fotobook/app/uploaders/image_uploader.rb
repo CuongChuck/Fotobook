@@ -3,13 +3,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
   # include CarrierWave::Vips
-  include ::CarrierWave::Backgrounder::Delay
 
   # Choose what kind of storage to use for this uploader:
   include Cloudinary::CarrierWave
   # storage :fog
-
-  cache_storage CarrierWave::Storage::File
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:

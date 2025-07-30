@@ -7,7 +7,6 @@ class Photo < ApplicationRecord
     scope :photo_only, -> { where.not(title: nil) }
 
     mount_uploader :image, ImageUploader
-    process_in_background :image
 
     has_and_belongs_to_many :albums, join_table: "album_has_photo"
     has_and_belongs_to_many :user_like_photo, class_name: "User", join_table: "user_like_photo"
