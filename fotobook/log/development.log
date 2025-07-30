@@ -25794,3 +25794,1571 @@ Processing by PhotosController#index as HTML
 Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2025-07-30 08:31:14 +0700
+  
+ActiveRecord::NoDatabaseError (We could not find your database: fotobook_development. Available database configurations can be found in config/database.yml.
+
+To resolve this error:
+
+- Did you not create the database, or did you delete it? To create the database, run:
+
+    bin/rails db:create
+
+- Has the database name changed? Verify that config/database.yml contains the correct database name.
+)
+Caused by: PG::ConnectionBad (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "fotobook_development" does not exist
+)
+
+Information for: ActiveRecord::NoDatabaseError (We could not find your database: fotobook_development. Available database configurations can be found in config/database.yml.
+
+To resolve this error:
+
+- Did you not create the database, or did you delete it? To create the database, run:
+
+    bin/rails db:create
+
+- Has the database name changed? Verify that config/database.yml contains the correct database name.
+):
+  
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:63:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.new_client'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:939:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#connect'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:951:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#reconnect'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:667:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:666:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:771:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:761:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:779:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#connect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:985:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:984:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:128:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote_string'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/quoting.rb:76:in 'ActiveRecord::ConnectionAdapters::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:122:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1142:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#quoted_scope'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1119:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#data_source_sql'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/schema_statements.rb:60:in 'ActiveRecord::ConnectionAdapters::SchemaStatements#table_exists?'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:55:in 'block in ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:418:in 'ActiveRecord::ConnectionAdapters::ConnectionPool#with_connection'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:54:in 'ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/migration.rb:1431:in 'ActiveRecord::Migrator#initialize'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'Class#new'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'ActiveRecord::MigrationContext#open'
+activerecord (8.0.2) lib/active_record/migration.rb:763:in 'block (2 levels) in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration/pending_migration_connection.rb:8:in 'ActiveRecord::PendingMigrationConnection.with_temporary_pool'
+activerecord (8.0.2) lib/active_record/migration.rb:762:in 'block in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'Array#each'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:740:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: PG::ConnectionBad (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "fotobook_development" does not exist
+):
+  
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:751:in 'PG::Connection::Pollable#polling_loop'
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:795:in 'PG::Connection#async_connect_or_reset'
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:951:in 'PG::Connection.connect_to_hosts'
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:871:in 'PG::Connection.new'
+pg-1.6.0-x86_64 (linux) lib/pg.rb:67:in 'PG.connect'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:58:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.new_client'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:939:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#connect'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:951:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#reconnect'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:667:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:666:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:771:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:761:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:779:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#connect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:985:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:984:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:128:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote_string'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/quoting.rb:76:in 'ActiveRecord::ConnectionAdapters::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:122:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1142:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#quoted_scope'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1119:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#data_source_sql'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/schema_statements.rb:60:in 'ActiveRecord::ConnectionAdapters::SchemaStatements#table_exists?'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:55:in 'block in ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:418:in 'ActiveRecord::ConnectionAdapters::ConnectionPool#with_connection'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:54:in 'ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/migration.rb:1431:in 'ActiveRecord::Migrator#initialize'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'Class#new'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'ActiveRecord::MigrationContext#open'
+activerecord (8.0.2) lib/active_record/migration.rb:763:in 'block (2 levels) in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration/pending_migration_connection.rb:8:in 'ActiveRecord::PendingMigrationConnection.with_temporary_pool'
+activerecord (8.0.2) lib/active_record/migration.rb:762:in 'block in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'Array#each'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:740:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-30 08:31:15 +0700
+  
+ActiveRecord::NoDatabaseError (We could not find your database: fotobook_development. Available database configurations can be found in config/database.yml.
+
+To resolve this error:
+
+- Did you not create the database, or did you delete it? To create the database, run:
+
+    bin/rails db:create
+
+- Has the database name changed? Verify that config/database.yml contains the correct database name.
+)
+Caused by: PG::ConnectionBad (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "fotobook_development" does not exist
+)
+
+Information for: ActiveRecord::NoDatabaseError (We could not find your database: fotobook_development. Available database configurations can be found in config/database.yml.
+
+To resolve this error:
+
+- Did you not create the database, or did you delete it? To create the database, run:
+
+    bin/rails db:create
+
+- Has the database name changed? Verify that config/database.yml contains the correct database name.
+):
+  
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:63:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.new_client'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:939:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#connect'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:951:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#reconnect'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:667:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:666:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:771:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:761:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:779:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#connect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:985:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:984:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:128:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote_string'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/quoting.rb:76:in 'ActiveRecord::ConnectionAdapters::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:122:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1142:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#quoted_scope'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1119:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#data_source_sql'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/schema_statements.rb:60:in 'ActiveRecord::ConnectionAdapters::SchemaStatements#table_exists?'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:55:in 'block in ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:418:in 'ActiveRecord::ConnectionAdapters::ConnectionPool#with_connection'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:54:in 'ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/migration.rb:1431:in 'ActiveRecord::Migrator#initialize'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'Class#new'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'ActiveRecord::MigrationContext#open'
+activerecord (8.0.2) lib/active_record/migration.rb:763:in 'block (2 levels) in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration/pending_migration_connection.rb:8:in 'ActiveRecord::PendingMigrationConnection.with_temporary_pool'
+activerecord (8.0.2) lib/active_record/migration.rb:762:in 'block in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'Array#each'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:740:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: PG::ConnectionBad (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "fotobook_development" does not exist
+):
+  
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:751:in 'PG::Connection::Pollable#polling_loop'
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:795:in 'PG::Connection#async_connect_or_reset'
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:951:in 'PG::Connection.connect_to_hosts'
+pg-1.6.0-x86_64 (linux) lib/pg/connection.rb:871:in 'PG::Connection.new'
+pg-1.6.0-x86_64 (linux) lib/pg.rb:67:in 'PG.connect'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:58:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter.new_client'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:939:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#connect'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql_adapter.rb:951:in 'ActiveRecord::ConnectionAdapters::PostgreSQLAdapter#reconnect'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:667:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:666:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#reconnect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:771:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:761:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#verify!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:779:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#connect!'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:985:in 'block in ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activesupport (8.0.2) lib/active_support/concurrency/null_lock.rb:9:in 'ActiveSupport::Concurrency::NullLock#synchronize'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract_adapter.rb:984:in 'ActiveRecord::ConnectionAdapters::AbstractAdapter#with_raw_connection'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:128:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote_string'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/quoting.rb:76:in 'ActiveRecord::ConnectionAdapters::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/quoting.rb:122:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::Quoting#quote'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1142:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#quoted_scope'
+activerecord (8.0.2) lib/active_record/connection_adapters/postgresql/schema_statements.rb:1119:in 'ActiveRecord::ConnectionAdapters::PostgreSQL::SchemaStatements#data_source_sql'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/schema_statements.rb:60:in 'ActiveRecord::ConnectionAdapters::SchemaStatements#table_exists?'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:55:in 'block in ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:418:in 'ActiveRecord::ConnectionAdapters::ConnectionPool#with_connection'
+activerecord (8.0.2) lib/active_record/schema_migration.rb:54:in 'ActiveRecord::SchemaMigration#create_table'
+activerecord (8.0.2) lib/active_record/migration.rb:1431:in 'ActiveRecord::Migrator#initialize'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'Class#new'
+activerecord (8.0.2) lib/active_record/migration.rb:1279:in 'ActiveRecord::MigrationContext#open'
+activerecord (8.0.2) lib/active_record/migration.rb:763:in 'block (2 levels) in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration/pending_migration_connection.rb:8:in 'ActiveRecord::PendingMigrationConnection.with_temporary_pool'
+activerecord (8.0.2) lib/active_record/migration.rb:762:in 'block in ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'Array#each'
+activerecord (8.0.2) lib/active_record/migration.rb:761:in 'ActiveRecord::Migration.pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:740:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='Fotobook'*/[0m
+  [1m[35m (87.9ms)[0m  [1m[35mCREATE DATABASE "fotobook_development" ENCODING = 'unicode' /*application='Fotobook'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mSET search_path TO public /*application='Fotobook'*/[0m
+  [1m[35m (104.0ms)[0m  [1m[35mCREATE DATABASE "fotobook_test" ENCODING = 'unicode' /*application='Fotobook'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-30 08:33:06 +0700
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Fotobook'*/[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 7 pending migrations:
+
+db/migrate/20250718083248_create_users.rb
+db/migrate/20250718083430_create_albums.rb
+db/migrate/20250718083454_create_photos.rb
+db/migrate/20250718083525_create_user_like_photo_join_table.rb
+db/migrate/20250718083604_create_user_like_album_join_table.rb
+db/migrate/20250718083637_create_user1_follow_user2_join_table.rb
+db/migrate/20250718083708_create_album_has_photo_join_table.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.16) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.1.16) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.16) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4611771930941315805) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-07-30 08:33:16.497644', '2025-07-30 08:33:16.497645') RETURNING "key" /*application='Fotobook'*/[0m
+Migrating to CreateUsers (20250718083248)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fname" character varying, "lname" character varying, "email" character varying, "isActive" boolean DEFAULT TRUE, "password" character varying, "isAdmin" boolean DEFAULT FALSE, "encrypted_password" character varying NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp(6), "last_sign_in_at" timestamp(6), "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Fotobook'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Fotobook'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083248') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateAlbums (20250718083430)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "title" character varying, "description" text, "user_id" bigint, "isPublic" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_964016e0e8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Fotobook'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_albums_on_user_id" ON "albums" ("user_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083430') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreatePhotos (20250718083454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "photos" ("id" bigserial primary key, "title" character varying, "description" text, "image" character varying, "user_id" bigint, "person_id" bigint, "isPublic" boolean, "image_processing" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c79d76afc0"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_f3f997d4d3"
+FOREIGN KEY ("person_id")
+  REFERENCES "users" ("id")
+) /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_photos_on_user_id" ON "photos" ("user_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_photos_on_person_id" ON "photos" ("person_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083454') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUserLikePhotoJoinTable (20250718083525)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "user_like_photo" ("user_id" bigint, "photo_id" bigint) /*application='Fotobook'*/[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_user_like_photo_on_user_id" ON "user_like_photo" ("user_id") /*application='Fotobook'*/[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE INDEX "index_user_like_photo_on_photo_id" ON "user_like_photo" ("photo_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083525') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUserLikeAlbumJoinTable (20250718083604)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "user_like_album" ("user_id" bigint, "album_id" bigint) /*application='Fotobook'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_user_like_album_on_user_id" ON "user_like_album" ("user_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_user_like_album_on_album_id" ON "user_like_album" ("album_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083604') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUser1FollowUser2JoinTable (20250718083637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "user1_follow_user2" ("followee_id" bigint NOT NULL, "follower_id" bigint NOT NULL) /*application='Fotobook'*/[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE INDEX "index_user1_follow_user2_on_follower_id" ON "user1_follow_user2" ("follower_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_user1_follow_user2_on_followee_id" ON "user1_follow_user2" ("followee_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083637') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateAlbumHasPhotoJoinTable (20250718083708)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "album_has_photo" ("album_id" bigint, "photo_id" bigint) /*application='Fotobook'*/[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE INDEX "index_album_has_photo_on_album_id" ON "album_has_photo" ("album_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_album_has_photo_on_photo_id" ON "album_has_photo" ("photo_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083708') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4611771930941315805) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4611771930941315805) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+Migrating to CreateAlbumHasPhotoJoinTable (20250718083708)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX  "index_album_has_photo_on_photo_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX  "index_album_has_photo_on_album_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "album_has_photo" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083708' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUser1FollowUser2JoinTable (20250718083637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX  "index_user1_follow_user2_on_followee_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX  "index_user1_follow_user2_on_follower_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "user1_follow_user2" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083637' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUserLikeAlbumJoinTable (20250718083604)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX  "index_user_like_album_on_album_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX  "index_user_like_album_on_user_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "user_like_album" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083604' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUserLikePhotoJoinTable (20250718083525)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP INDEX  "index_user_like_photo_on_photo_id" /*application='Fotobook'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX  "index_user_like_photo_on_user_id" /*application='Fotobook'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE "user_like_photo" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083525' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreatePhotos (20250718083454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (4.2ms)[0m  [1m[35mDROP TABLE "photos" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083454' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateAlbums (20250718083430)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "albums" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (1.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083430' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUsers (20250718083248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX  "index_users_on_reset_password_token" /*application='Fotobook'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP INDEX  "index_users_on_email" /*application='Fotobook'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "users" /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20250718083248' /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4611771930941315805) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4611771930941315805) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Fotobook'*/[0m
+Migrating to CreateUsers (20250718083248)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (26.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "fname" character varying, "lname" character varying, "email" character varying, "isActive" boolean DEFAULT TRUE, "password" character varying, "isAdmin" boolean DEFAULT FALSE, "encrypted_password" character varying NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp(6), "last_sign_in_at" timestamp(6), "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email") /*application='Fotobook'*/[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083248') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateAlbums (20250718083430)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (9.6ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "title" character varying, "description" text, "user_id" bigint, "isPublic" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_964016e0e8"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_albums_on_user_id" ON "albums" ("user_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083430') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreatePhotos (20250718083454)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "photos" ("id" bigserial primary key, "title" character varying, "description" text, "image" character varying, "user_id" bigint, "person_id" bigint, "isPublic" boolean, "image_processing" boolean, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c79d76afc0"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_f3f997d4d3"
+FOREIGN KEY ("person_id")
+  REFERENCES "users" ("id")
+) /*application='Fotobook'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE INDEX "index_photos_on_user_id" ON "photos" ("user_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE INDEX "index_photos_on_person_id" ON "photos" ("person_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083454') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUserLikePhotoJoinTable (20250718083525)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "user_like_photo" ("user_id" bigint, "photo_id" bigint) /*application='Fotobook'*/[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE INDEX "index_user_like_photo_on_user_id" ON "user_like_photo" ("user_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_user_like_photo_on_photo_id" ON "user_like_photo" ("photo_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083525') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUserLikeAlbumJoinTable (20250718083604)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "user_like_album" ("user_id" bigint, "album_id" bigint) /*application='Fotobook'*/[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE INDEX "index_user_like_album_on_user_id" ON "user_like_album" ("user_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_user_like_album_on_album_id" ON "user_like_album" ("album_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083604') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateUser1FollowUser2JoinTable (20250718083637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "user1_follow_user2" ("followee_id" bigint NOT NULL, "follower_id" bigint NOT NULL) /*application='Fotobook'*/[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE INDEX "index_user1_follow_user2_on_follower_id" ON "user1_follow_user2" ("follower_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE INDEX "index_user1_follow_user2_on_followee_id" ON "user1_follow_user2" ("followee_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083637') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Migrating to CreateAlbumHasPhotoJoinTable (20250718083708)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "album_has_photo" ("album_id" bigint, "photo_id" bigint) /*application='Fotobook'*/[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE INDEX "index_album_has_photo_on_album_id" ON "album_has_photo" ("album_id") /*application='Fotobook'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE INDEX "index_album_has_photo_on_photo_id" ON "album_has_photo" ("photo_id") /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (3.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250718083708') RETURNING "version" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4611771930941315805) /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-07-30 08:33:29 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+Processing by PhotosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering photos/index.html.erb within layouts/application
+  Rendered application/_mode_switch.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."title" IS NOT NULL AND "photos"."isPublic" = TRUE ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  Rendered photos/index.html.erb within layouts/application (Duration: 8.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 786.9ms | GC: 50.4ms)
+Completed 200 OK in 831ms (Views: 789.0ms | ActiveRecord: 4.7ms (1 query, 0 cached) | GC: 50.4ms)
+
+
+Started GET "/assets/application-90195533dce318fff1b72c94cba579180c86e5af0d02ead208a270169b7a8e36.css" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/application-2c89e6c38e1fb572af719c7a2cbe0f57c6d899898fca3cdf8b455621b36be032.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/turbo.min-38d030897e3554a265d3a3b6bdf4fb7509b08197ba2b6e3761683c07e776c1bc.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/popper-003a40d80fd205e1fa00da117d5bdc19720ba330706eaa17f9ba9513fa502304.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/controllers/index-31a9bee606cbc5cdb1593881f388bbf4c345bf693ea24e124f84b6d5c98ab648.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/scripts" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/assets/bootstrap.min-4ecafa8f279d0b285b3d27ca02c7e5da187907efe2c38f83eb8b4c7d6aa151c4.js" for 127.0.0.1 at 2025-07-30 08:33:30 +0700
+Started GET "/login" for 127.0.0.1 at 2025-07-30 08:33:33 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | GC: 0.0ms)
+Completed 200 OK in 36ms (Views: 11.0ms | ActiveRecord: 3.3ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/font-awesome/fa-brands-400-1f56bc1732fed207bf092be076fd531aa7e15e8af32fd4ce2e98ef278d385bac.woff2" for 127.0.0.1 at 2025-07-30 08:33:34 +0700
+Started GET "/assets/font-awesome/fa-solid-900-64214b0a6635e69b2722c690f29506337eccbc40c088f7f5bc4e42b361d162a8.woff2" for 127.0.0.1 at 2025-07-30 08:33:34 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."fname" = 'Admin' AND "users"."lname" = 'Fotobook' AND "users"."email" = 'admin@fotobook.com' AND "users"."password" = '1' AND "users"."password_confirmation" = '1' AND "users"."isAdmin" = TRUE LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."fname" = 'Admin' AND "users"."lname" = 'Fotobook' AND "users"."email" = 'admin@fotobook.com' AND "users"."password" = '1' AND "users"."isAdmin" = TRUE LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Fotobook'*/[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'admin@fotobook.com' LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fname", "lname", "email", "isActive", "password", "isAdmin", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('Admin', 'Fotobook', 'admin@fotobook.com', TRUE, NULL, TRUE, '$2a$12$sbNCsoxJqdNt.sgFsR9C1uEp6FBkdpzEZNd/nv/7jt8hBsnnTzYrS', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2025-07-30 08:44:20.096154', '2025-07-30 08:44:20.096154') RETURNING "id" /*application='Fotobook'*/[0m
+  [1m[36mTRANSACTION (5.3ms)[0m  [1m[35mCOMMIT /*application='Fotobook'*/[0m
+Started GET "/login" for 127.0.0.1 at 2025-07-30 08:44:27 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/scripts" for 127.0.0.1 at 2025-07-30 08:44:28 +0700
+Started GET "/signup/sign_up" for 127.0.0.1 at 2025-07-30 08:44:29 +0700
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2025-07-30 08:44:40 +0700
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"fname" => "Some", "lname" => "One", "email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Signup"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='registrations'*/[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'englishtalent123@gmail.com' LIMIT 1 /*action='create',application='Fotobook',controller='registrations'*/[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("fname", "lname", "email", "isActive", "password", "isAdmin", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('Some', 'One', 'englishtalent123@gmail.com', TRUE, NULL, FALSE, '$2a$12$iJReaazu.OJTI1s3ROBSMuNsYnbS/1sY2ZZoVesCjB3nWXRZO/B8q', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2025-07-30 08:44:40.996346', '2025-07-30 08:44:40.996346') RETURNING "id" /*action='create',application='Fotobook',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='registrations'*/[0m
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = 1, "current_sign_in_at" = '2025-07-30 08:44:41.007083', "last_sign_in_at" = '2025-07-30 08:44:41.007083', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_ip" = '127.0.0.1', "updated_at" = '2025-07-30 08:44:41.007223' WHERE "users"."id" = 2 /*action='create',application='Fotobook',controller='registrations'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='registrations'*/[0m
+Redirected to http://localhost:3000/photos/feeds
+Completed 303 See Other in 201ms (ActiveRecord: 14.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/photos/feeds" for 127.0.0.1 at 2025-07-30 08:44:41 +0700
+Processing by PhotosController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:8:in 'PhotosController#index'
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."title" IS NOT NULL AND "photos"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2) AND "photos"."isPublic" = TRUE ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:15:in 'PhotosController#index'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:15:in 'PhotosController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/index.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered application/_mode_switch.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered photos/index.html.erb within layouts/application (Duration: 2.6ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 7.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 15.1ms | ActiveRecord: 3.2ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2/photos" for 127.0.0.1 at 2025-07-30 08:44:46 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 18.4ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:19
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 25.4ms | GC: 0.0ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.8ms | GC: 0.0ms)
+Completed 200 OK in 43ms (Views: 36.9ms | ActiveRecord: 2.7ms (9 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/users/2/photos/new" for 127.0.0.1 at 2025-07-30 08:44:47 +0700
+Processing by PhotosController#new as HTML
+  Parameters: {"user_id" => "2"}
+  Rendering layout layouts/application.html.erb
+  Rendering photos/new.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_navbar.html.erb:2
+  Rendered application/_navbar.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered photos/new.html.erb within layouts/application (Duration: 10.8ms | GC: 0.4ms)
+  [1m[36mPhoto Load (0.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='new',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | GC: 1.1ms)
+Completed 200 OK in 30ms (Views: 22.7ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/assets/square-plus-regular-8e6ee6b7928380073bd02b80fa7714c59d2929b0408d7eb12d6a321083aa5a0b.jpg" for 127.0.0.1 at 2025-07-30 08:44:47 +0700
+Started POST "/users/2/photos" for 127.0.0.1 at 2025-07-30 08:46:10 +0700
+Processing by PhotosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "photo" => {"title" => "Italian Cat", "sharing_mode" => "1", "image" => #<ActionDispatch::Http::UploadedFile:0x00007acbb34a6470 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-7128-njhy8.jpg>, @content_type="image/jpeg", @original_filename="bb3b439b-e10f-41db-96ba-6d8d5f57dea6.jpg", @headers="Content-Disposition: form-data; name=\"photo[image]\"; filename=\"bb3b439b-e10f-41db-96ba-6d8d5f57dea6.jpg\"\r\nContent-Type: image/jpeg\r\n">, "image_cache" => "", "description" => "Buon giorno"}, "commit" => "Save", "user_id" => "2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:107:in 'PhotosController#authenticate_normal_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:51:in 'PhotosController#create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:51:in 'PhotosController#create'
+  [1m[36mPhoto Create (0.7ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES ('Italian Cat', 'Buon giorno', 'photo__68489bb2.webp', 2, NULL, TRUE, TRUE, '2025-07-30 08:46:10.201812', '2025-07-30 08:46:10.201812') RETURNING "id" /*action='create',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:51:in 'PhotosController#create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:51:in 'PhotosController#create'
+  [1m[36mPhoto Update (5.4ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753839971/photo__68489bb2.webp' WHERE "photos"."id" = 1 /*action='create',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:51:in 'PhotosController#create'
+Redirected to http://localhost:3000/users/2/photos
+Completed 302 Found in 1944ms (ActiveRecord: 9.5ms (4 queries, 0 cached) | GC: 3.3ms)
+
+
+Started GET "/users/2/photos" for 127.0.0.1 at 2025-07-30 08:46:12 +0700
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 9.0ms | GC: 0.5ms)
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:19
+  Rendered application/_profile_media.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 16.5ms | GC: 0.5ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 9.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.2ms | GC: 1.1ms)
+Completed 200 OK in 40ms (Views: 36.5ms | ActiveRecord: 1.6ms (9 queries, 1 cached) | GC: 1.1ms)
+
+
+Started GET "/users/2/albums" for 127.0.0.1 at 2025-07-30 08:46:16 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 11.1ms | GC: 0.2ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 14.1ms | GC: 0.2ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | GC: 0.3ms)
+Completed 200 OK in 30ms (Views: 21.7ms | ActiveRecord: 1.3ms (8 queries, 1 cached) | GC: 0.3ms)
+
+
+Started GET "/photos/1/edit" for 127.0.0.1 at 2025-07-30 08:46:17 +0700
+Processing by PhotosController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:98:in 'PhotosController#set_photo'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering photos/edit.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_delete.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered photos/edit.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 3.4ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | GC: 0.4ms)
+Completed 200 OK in 28ms (Views: 16.3ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/photos/1/edit" for 127.0.0.1 at 2025-07-30 08:46:17 +0700
+Processing by PhotosController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:98:in 'PhotosController#set_photo'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering photos/edit.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_delete.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered photos/edit.html.erb within layouts/application (Duration: 2.8ms | GC: 0.1ms)
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 0.3ms)
+Completed 200 OK in 14ms (Views: 11.2ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.3ms)
+
+
+  [1m[36mPhoto Load (1.7ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 76 ORDER BY "photos"."created_at" DESC LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mPhoto Load (2.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 77 ORDER BY "photos"."created_at" DESC LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mPhoto Load (1.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*application='Fotobook'*/[0m
+  [1m[36mPhoto Load (27.8ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 78 ORDER BY "photos"."created_at" DESC LIMIT 1 /*application='Fotobook'*/[0m
+Started PUT "/photos/1" for 127.0.0.1 at 2025-07-30 08:46:55 +0700
+Processing by PhotosController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "photo" => {"title" => "Penguin", "isPublic" => "1", "image_cache" => "", "image" => #<ActionDispatch::Http::UploadedFile:0x00007acbb343d678 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-7128-hegdsf.png>, @content_type="image/png", @original_filename="penguin.png", @headers="Content-Disposition: form-data; name=\"photo[image]\"; filename=\"penguin.png\"\r\nContent-Type: image/png\r\n">, "description" => "Silver Penguin"}, "commit" => "Save", "id" => "1"}
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:98:in 'PhotosController#set_photo'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mAlbum Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:19:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:19:in 'block in <class:Photo>'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:63:in 'PhotosController#update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mAlbum Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:19:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:19:in 'block in <class:Photo>'
+  [1m[36mPhoto Update (0.2ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'photo_1_5a1fadbc.webp', "title" = 'Penguin', "description" = 'Silver Penguin', "updated_at" = '2025-07-30 08:46:55.622879' WHERE "photos"."id" = 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:67:in 'PhotosController#update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:67:in 'PhotosController#update'
+  [1m[36mPhoto Update (6.3ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753840017/photo_1_5a1fadbc.webp' WHERE "photos"."id" = 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:67:in 'PhotosController#update'
+Redirected to http://localhost:3000/users/2/photos
+Completed 302 Found in 2674ms (ActiveRecord: 8.6ms (12 queries, 6 cached) | GC: 0.4ms)
+
+
+Started GET "/users/2/photos" for 127.0.0.1 at 2025-07-30 08:46:58 +0700
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*application='Fotobook'*/[0m
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 13.4ms | GC: 0.2ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:19
+  Rendered application/_profile_media.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 19.6ms | GC: 0.2ms)
+  [1m[36mCACHE Photo Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.8ms | GC: 2.2ms)
+Completed 200 OK in 46ms (Views: 37.6ms | ActiveRecord: 2.1ms (9 queries, 1 cached) | GC: 2.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2025-07-30 09:10:25 +0700
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "commit" => "Logout"}
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='Fotobook',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 21ms (ActiveRecord: 6.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-30 09:10:25 +0700
+Processing by PhotosController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering photos/index.html.erb within layouts/application
+  Rendered application/_mode_switch.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."title" IS NOT NULL AND "photos"."isPublic" = TRUE ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  [1m[36mHABTM_UserLikePhoto Load (0.2ms)[0m  [1m[34mSELECT "user_like_photo".* FROM "user_like_photo" WHERE "user_like_photo"."photo_id" = 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/_photo_post.html.erb:8
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_like.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered photos/_photo_post.html.erb (Duration: 6.0ms | GC: 0.0ms)
+  Rendered photos/index.html.erb within layouts/application (Duration: 17.9ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 25.1ms | ActiveRecord: 2.1ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2025-07-30 09:10:26 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2025-07-30 09:10:45 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Fotobook'*/[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 150.7ms | GC: 0.0ms)
+Completed 200 OK in 209ms (Views: 164.9ms | ActiveRecord: 8.1ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2025-07-30 09:10:53 +0700
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}, "commit" => "Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'englishtalent123@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Fotobook',controller='sessions'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='sessions'*/[0m
+  [1m[36mUser Update (2.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = 2, "current_sign_in_at" = '2025-07-30 09:10:53.911957', "updated_at" = '2025-07-30 09:10:53.912216' WHERE "users"."id" = 2 /*action='create',application='Fotobook',controller='sessions'*/[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='sessions'*/[0m
+Redirected to http://localhost:3000/photos/feeds
+Completed 303 See Other in 211ms (ActiveRecord: 9.1ms (2 queries, 0 cached) | GC: 12.7ms)
+
+
+Started GET "/photos/feeds" for 127.0.0.1 at 2025-07-30 09:10:53 +0700
+Processing by PhotosController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:8:in 'PhotosController#index'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+  
+NameError (uninitialized constant CarrierWave::Backgrounder):
+  
+app/uploaders/image_uploader.rb:6:in '<class:ImageUploader>'
+app/uploaders/image_uploader.rb:1:in '<main>'
+app/models/photo.rb:9:in '<class:Photo>'
+app/models/photo.rb:1:in '<main>'
+app/controllers/photos_controller.rb:15:in 'PhotosController#index'
+Started GET "/login" for 127.0.0.1 at 2025-07-30 09:11:40 +0700
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='Fotobook',controller='sessions'*/[0m
+Redirected to http://localhost:3000/photos/feeds
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 26ms (ActiveRecord: 3.1ms (1 query, 0 cached) | GC: 4.0ms)
+
+
+Started GET "/photos/feeds" for 127.0.0.1 at 2025-07-30 09:11:40 +0700
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:8:in 'PhotosController#index'
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 5.5ms)
+
+
+  
+NoMethodError (undefined method 'process_in_background' for class Photo):
+  
+app/models/photo.rb:10:in '<class:Photo>'
+app/models/photo.rb:1:in '<main>'
+app/controllers/photos_controller.rb:15:in 'PhotosController#index'
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-07-30 09:11:41 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/photos/feeds" for 127.0.0.1 at 2025-07-30 09:11:48 +0700
+Processing by PhotosController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:8:in 'PhotosController#index'
+  [1m[36mPhoto Load (0.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."title" IS NOT NULL AND "photos"."user_id" IN (SELECT "users"."id" FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2) AND "photos"."isPublic" = TRUE ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:15:in 'PhotosController#index'
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:15:in 'PhotosController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering photos/index.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered application/_mode_switch.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/_photo_post.html.erb:7
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/_photo_post.html.erb:8
+  Rendered application/_ava.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  [1m[36mPhoto Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "photos" INNER JOIN "user_like_photo" ON "photos"."id" = "user_like_photo"."photo_id" WHERE "user_like_photo"."user_id" = 2 AND "photos"."id" = 1 LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_like.html.erb:4
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user_like_photo" ON "users"."id" = "user_like_photo"."user_id" WHERE "user_like_photo"."photo_id" = 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_like.html.erb:35
+  Rendered application/_like.html.erb (Duration: 16.2ms | GC: 0.0ms)
+  Rendered photos/_photo_post.html.erb (Duration: 52.7ms | GC: 0.0ms)
+  Rendered photos/index.html.erb within layouts/application (Duration: 61.3ms | GC: 0.0ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 4.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 118.1ms | GC: 10.0ms)
+Completed 200 OK in 194ms (Views: 118.3ms | ActiveRecord: 10.1ms (8 queries, 1 cached) | GC: 12.6ms)
+
+
+Started GET "/assets/scripts" for 127.0.0.1 at 2025-07-30 09:11:48 +0700
+Started GET "/users/2/photos" for 127.0.0.1 at 2025-07-30 09:11:53 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 26.9ms | GC: 0.4ms)
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:19
+  Rendered application/_profile_media.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 41.6ms | GC: 0.4ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 56.5ms | GC: 0.6ms)
+Completed 200 OK in 66ms (Views: 54.5ms | ActiveRecord: 3.9ms (9 queries, 1 cached) | GC: 0.7ms)
+
+
+Started GET "/photos/1/edit" for 127.0.0.1 at 2025-07-30 09:11:55 +0700
+Processing by PhotosController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:98:in 'PhotosController#set_photo'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering photos/edit.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered application/_modal_delete.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered photos/edit.html.erb within layouts/application (Duration: 17.2ms | GC: 1.3ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | GC: 1.3ms)
+Completed 200 OK in 44ms (Views: 34.3ms | ActiveRecord: 1.0ms (3 queries, 0 cached) | GC: 1.3ms)
+
+
+Started PUT "/photos/1" for 127.0.0.1 at 2025-07-30 09:14:37 +0700
+Processing by PhotosController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "photo" => {"title" => "Test", "isPublic" => "1", "image_cache" => "", "image" => #<ActionDispatch::Http::UploadedFile:0x0000741d0550d2f0 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-te27wn.jpg>, @content_type="image/jpeg", @original_filename="bb3b439b-e10f-41db-96ba-6d8d5f57dea6.jpg", @headers="Content-Disposition: form-data; name=\"photo[image]\"; filename=\"bb3b439b-e10f-41db-96ba-6d8d5f57dea6.jpg\"\r\nContent-Type: image/jpeg\r\n">, "description" => "Test"}, "commit" => "Save", "id" => "1"}
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."id" = 1 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:98:in 'PhotosController#set_photo'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:17:in 'block in <class:Photo>'
+  [1m[36mAlbum Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:17:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:17:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:63:in 'PhotosController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:17:in 'block in <class:Photo>'
+  [1m[36mAlbum Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/models/photo.rb:17:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:17:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mCACHE Album Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "albums" INNER JOIN "album_has_photo" ON "albums"."id" = "album_has_photo"."album_id" WHERE "album_has_photo"."photo_id" = 1 LIMIT 1[0m
+  ↳ app/models/photo.rb:18:in 'block in <class:Photo>'
+  [1m[36mPhoto Update (0.4ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'photo_1_44a8631a.webp', "title" = 'Test', "description" = 'Test', "updated_at" = '2025-07-30 09:14:39.641741' WHERE "photos"."id" = 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:67:in 'PhotosController#update'
+  [1m[36mPhoto Update (0.5ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841681/photo_1_44a8631a.webp' WHERE "photos"."id" = 1 /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:67:in 'PhotosController#update'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='photos'*/[0m
+  ↳ app/controllers/photos_controller.rb:67:in 'PhotosController#update'
+Redirected to http://localhost:3000/users/2/photos
+Completed 302 Found in 5099ms (ActiveRecord: 11.0ms (12 queries, 6 cached) | GC: 7.3ms)
+
+
+Started GET "/users/2/photos" for 127.0.0.1 at 2025-07-30 09:14:42 +0700
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 16.1ms | GC: 0.5ms)
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:19
+  Rendered application/_profile_media.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 25.2ms | GC: 0.5ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | GC: 1.4ms)
+Completed 200 OK in 49ms (Views: 39.5ms | ActiveRecord: 2.5ms (9 queries, 1 cached) | GC: 1.4ms)
+
+
+Started GET "/users/2/albums" for 127.0.0.1 at 2025-07-30 09:14:53 +0700
+Processing by UsersController#show as HTML
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 16.1ms | GC: 0.1ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 18.8ms | GC: 0.1ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | GC: 0.5ms)
+Completed 200 OK in 34ms (Views: 29.6ms | ActiveRecord: 1.8ms (8 queries, 1 cached) | GC: 0.6ms)
+
+
+Started GET "/users/2/albums/new" for 127.0.0.1 at 2025-07-30 09:14:54 +0700
+Processing by AlbumsController#new as HTML
+  Parameters: {"user_id" => "2"}
+  Rendering layout layouts/application.html.erb
+  Rendering albums/new.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='Fotobook',controller='albums'*/[0m
+  ↳ app/views/application/_navbar.html.erb:2
+  Rendered application/_navbar.html.erb (Duration: 3.0ms | GC: 0.2ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered albums/new.html.erb within layouts/application (Duration: 9.6ms | GC: 0.2ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='new',application='Fotobook',controller='albums'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | GC: 1.9ms)
+Completed 200 OK in 30ms (Views: 26.8ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/assets/square-plus-regular-8e6ee6b7928380073bd02b80fa7714c59d2929b0408d7eb12d6a321083aa5a0b.jpg" for 127.0.0.1 at 2025-07-30 09:14:55 +0700
+Started POST "/users/2/albums" for 127.0.0.1 at 2025-07-30 09:15:06 +0700
+Processing by AlbumsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "album" => {"title" => "Test", "isPublic" => "1", "images" => ["", #<ActionDispatch::Http::UploadedFile:0x0000741d054da418 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-r16zjt.jpeg>, @content_type="image/jpeg", @original_filename="unlimitedpower.jpeg", @headers="Content-Disposition: form-data; name=\"album[images][]\"; filename=\"unlimitedpower.jpeg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x0000741d054da3c8 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-x7dogm.jpeg>, @content_type="image/jpeg", @original_filename="liar.jpeg", @headers="Content-Disposition: form-data; name=\"album[images][]\"; filename=\"liar.jpeg\"\r\nContent-Type: image/jpeg\r\n">], "description" => "Test"}, "commit" => "Save", "user_id" => "2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:137:in 'AlbumsController#authenticate_normal_user'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:44:in 'AlbumsController#create'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:44:in 'AlbumsController#create'
+  [1m[36mAlbum Create (0.6ms)[0m  [1m[32mINSERT INTO "albums" ("title", "description", "user_id", "isPublic", "created_at", "updated_at") VALUES ('Test', 'Test', 2, TRUE, '2025-07-30 09:15:06.294488', '2025-07-30 09:15:06.294488') RETURNING "id" /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:44:in 'AlbumsController#create'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:44:in 'AlbumsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES (NULL, NULL, 'photo__744fd533.webp', 2, NULL, FALSE, NULL, '2025-07-30 09:15:06.340789', '2025-07-30 09:15:06.340789') RETURNING "id" /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mPhoto::HABTM_Albums Create (0.3ms)[0m  [1m[32mINSERT INTO "album_has_photo" ("album_id", "photo_id") VALUES (1, 2) /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mPhoto Update (0.4ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841707/photo__744fd533.webp' WHERE "photos"."id" = 2 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mPhoto Create (0.4ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES (NULL, NULL, 'photo__60b9ec5b.webp', 2, NULL, FALSE, NULL, '2025-07-30 09:15:08.519042', '2025-07-30 09:15:08.519042') RETURNING "id" /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mPhoto::HABTM_Albums Create (0.2ms)[0m  [1m[32mINSERT INTO "album_has_photo" ("album_id", "photo_id") VALUES (1, 3) /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mPhoto Update (0.3ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841710/photo__60b9ec5b.webp' WHERE "photos"."id" = 3 /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT /*action='create',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:50:in 'block in AlbumsController#create'
+Redirected to http://localhost:3000/users/2/albums
+Completed 302 Found in 4677ms (ActiveRecord: 24.2ms (12 queries, 0 cached) | GC: 11.0ms)
+
+
+Started GET "/users/2/albums" for 127.0.0.1 at 2025-07-30 09:15:10 +0700
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 18.5ms | GC: 0.5ms)
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = 2 ORDER BY "albums"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:29
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_album.html.erb:4
+  [1m[36mPhoto Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_album.html.erb:15
+  Rendered application/_profile_album.html.erb (Duration: 16.8ms | GC: 0.2ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 58.0ms | GC: 0.8ms)
+  [1m[36mCACHE Photo Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 68.6ms | GC: 1.1ms)
+Completed 200 OK in 76ms (Views: 66.1ms | ActiveRecord: 3.4ms (11 queries, 1 cached) | GC: 1.8ms)
+
+
+Started GET "/albums/1/edit" for 127.0.0.1 at 2025-07-30 09:15:12 +0700
+Processing by AlbumsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mAlbum Load (0.3ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 ORDER BY "albums"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:124:in 'AlbumsController#set_album'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='Fotobook',controller='albums'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 ORDER BY "photos"."created_at" DESC /*action='edit',application='Fotobook',controller='albums'*/[0m
+  ↳ app/views/albums/edit.html.erb:38
+  Rendered application/_modal_delete.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered albums/edit.html.erb within layouts/application (Duration: 14.7ms | GC: 0.2ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='albums'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.3ms | GC: 1.3ms)
+Completed 200 OK in 40ms (Views: 27.4ms | ActiveRecord: 1.2ms (4 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/albums/1/edit" for 127.0.0.1 at 2025-07-30 09:15:16 +0700
+Processing by AlbumsController#edit as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 ORDER BY "albums"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:124:in 'AlbumsController#set_album'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='edit',application='Fotobook',controller='albums'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering albums/edit.html.erb within layouts/application
+  Rendered application/_navbar.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered application/_edit_header.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 ORDER BY "photos"."created_at" DESC /*action='edit',application='Fotobook',controller='albums'*/[0m
+  ↳ app/views/albums/edit.html.erb:38
+  Rendered application/_modal_delete.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered albums/edit.html.erb within layouts/application (Duration: 15.8ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='edit',application='Fotobook',controller='albums'*/[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 31.3ms | ActiveRecord: 1.2ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PUT "/albums/1" for 127.0.0.1 at 2025-07-30 09:15:25 +0700
+Processing by AlbumsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "album" => {"title" => "Test", "isPublic" => "1", "images" => ["", #<ActionDispatch::Http::UploadedFile:0x0000741d0431be70 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-xrfmyd.jpg>, @content_type="image/jpeg", @original_filename="vit1.jpg", @headers="Content-Disposition: form-data; name=\"album[images][]\"; filename=\"vit1.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x0000741d0431be20 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-pboxe9.jpg>, @content_type="image/jpeg", @original_filename="vit2.jpg", @headers="Content-Disposition: form-data; name=\"album[images][]\"; filename=\"vit2.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x0000741d0431bdd0 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-u39sin.jpg>, @content_type="image/jpeg", @original_filename="vit3.jpg", @headers="Content-Disposition: form-data; name=\"album[images][]\"; filename=\"vit3.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x0000741d0431bd80 @tempfile=#<Tempfile:/tmp/RackMultipart20250730-12490-aq24nj.jpg>, @content_type="image/jpeg", @original_filename="vit4.jpg", @headers="Content-Disposition: form-data; name=\"album[images][]\"; filename=\"vit4.jpg\"\r\nContent-Type: image/jpeg\r\n">], "description" => "Test", "remove_images" => ["3", "2"]}, "commit" => "Save", "id" => "1"}
+  [1m[36mAlbum Load (0.2ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."id" = 1 ORDER BY "albums"."created_at" DESC LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:124:in 'AlbumsController#set_album'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 AND "photos"."id" = 3 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:71:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_UserLikePhoto Delete All (0.4ms)[0m  [1m[31mDELETE FROM "user_like_photo" WHERE "user_like_photo"."photo_id" = 3 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_Albums Delete All (0.4ms)[0m  [1m[31mDELETE FROM "album_has_photo" WHERE "album_has_photo"."photo_id" = 3 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto Destroy (0.2ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = 3 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 AND "photos"."id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:71:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_UserLikePhoto Delete All (1.2ms)[0m  [1m[31mDELETE FROM "user_like_photo" WHERE "user_like_photo"."photo_id" = 2 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_Albums Delete All (0.1ms)[0m  [1m[31mDELETE FROM "album_has_photo" WHERE "album_has_photo"."photo_id" = 2 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mPhoto Destroy (0.1ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = 2 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (4.9ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:75:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Create (0.3ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES (NULL, NULL, 'photo__ffccf8fb.webp', 2, NULL, FALSE, NULL, '2025-07-30 09:15:30.134586', '2025-07-30 09:15:30.134586') RETURNING "id" /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_Albums Create (0.1ms)[0m  [1m[32mINSERT INTO "album_has_photo" ("album_id", "photo_id") VALUES (1, 4) /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Update (0.4ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841737/photo__ffccf8fb.webp' WHERE "photos"."id" = 4 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Create (0.2ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES (NULL, NULL, 'photo__be9e4699.webp', 2, NULL, FALSE, NULL, '2025-07-30 09:15:38.335774', '2025-07-30 09:15:38.335774') RETURNING "id" /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_Albums Create (0.2ms)[0m  [1m[32mINSERT INTO "album_has_photo" ("album_id", "photo_id") VALUES (1, 5) /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Update (0.4ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841746/photo__be9e4699.webp' WHERE "photos"."id" = 5 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Create (0.2ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES (NULL, NULL, 'photo__d2ac5573.webp', 2, NULL, FALSE, NULL, '2025-07-30 09:15:48.782858', '2025-07-30 09:15:48.782858') RETURNING "id" /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_Albums Create (0.1ms)[0m  [1m[32mINSERT INTO "album_has_photo" ("album_id", "photo_id") VALUES (1, 6) /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Update (0.2ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841757/photo__d2ac5573.webp' WHERE "photos"."id" = 6 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Create (0.2ms)[0m  [1m[32mINSERT INTO "photos" ("title", "description", "image", "user_id", "person_id", "isPublic", "image_processing", "created_at", "updated_at") VALUES (NULL, NULL, 'photo__a155b342.webp', 2, NULL, FALSE, NULL, '2025-07-30 09:15:59.030266', '2025-07-30 09:15:59.030266') RETURNING "id" /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto::HABTM_Albums Create (0.1ms)[0m  [1m[32mINSERT INTO "album_has_photo" ("album_id", "photo_id") VALUES (1, 7) /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mPhoto Update (0.3ms)[0m  [1m[33mUPDATE "photos" SET "image" = 'image/upload/v1753841763/photo__a155b342.webp' WHERE "photos"."id" = 7 /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mCOMMIT /*action='update',application='Fotobook',controller='albums'*/[0m
+  ↳ app/controllers/albums_controller.rb:84:in 'block in AlbumsController#update'
+Redirected to http://localhost:3000/users/2/albums
+Completed 302 Found in 38792ms (ActiveRecord: 42.1ms (27 queries, 0 cached) | GC: 29.9ms)
+
+
+Started GET "/users/2/albums" for 127.0.0.1 at 2025-07-30 09:16:04 +0700
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"user_id" => "2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/controllers/users_controller.rb:103:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:4
+  Rendered application/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:2
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."user_id" = 2 AND "photos"."title" IS NOT NULL /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:19
+  [1m[36mAlbum Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "albums" WHERE "albums"."user_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:21
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."followee_id" WHERE "user1_follow_user2"."follower_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:23
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "user1_follow_user2" ON "users"."id" = "user1_follow_user2"."follower_id" WHERE "user1_follow_user2"."followee_id" = 2 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_header.html.erb:25
+  Rendered application/_profile_header.html.erb (Duration: 21.4ms | GC: 5.7ms)
+  [1m[36mAlbum Load (0.4ms)[0m  [1m[34mSELECT "albums".* FROM "albums" WHERE "albums"."user_id" = 2 ORDER BY "albums"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/users/show.html.erb:29
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 ORDER BY "photos"."created_at" DESC /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_album.html.erb:4
+  [1m[36mPhoto Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" INNER JOIN "album_has_photo" ON "photos"."id" = "album_has_photo"."photo_id" WHERE "album_has_photo"."album_id" = 1 /*action='show',application='Fotobook',controller='users'*/[0m
+  ↳ app/views/application/_profile_album.html.erb:15
+  Rendered application/_profile_album.html.erb (Duration: 12.3ms | GC: 3.8ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_modal_album.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered users/show.html.erb within layouts/application (Duration: 47.7ms | GC: 13.4ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1[0m
+  ↳ app/views/application/_header.html.erb:9
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 3.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 66.5ms | GC: 17.6ms)
+Completed 200 OK in 71ms (Views: 63.5ms | ActiveRecord: 3.9ms (11 queries, 1 cached) | GC: 19.2ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2025-07-30 09:16:17 +0700
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "commit" => "Logout"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 ORDER BY "users"."id" ASC LIMIT 1 /*action='destroy',application='Fotobook',controller='sessions'*/[0m
+Redirected to http://localhost:3000/
+Completed 303 See Other in 14ms (ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-07-30 09:16:17 +0700
+Processing by PhotosController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering photos/index.html.erb within layouts/application
+  Rendered application/_mode_switch.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered application/_modal.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."title" IS NOT NULL AND "photos"."isPublic" = TRUE ORDER BY "photos"."created_at" DESC /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  [1m[36mHABTM_UserLikePhoto Load (0.2ms)[0m  [1m[34mSELECT "user_like_photo".* FROM "user_like_photo" WHERE "user_like_photo"."photo_id" = 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/index.html.erb:13
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."person_id" = 2 ORDER BY "photos"."created_at" DESC LIMIT 1 /*action='index',application='Fotobook',controller='photos'*/[0m
+  ↳ app/views/photos/_photo_post.html.erb:8
+  Rendered application/_ava.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered application/_like.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered photos/_photo_post.html.erb (Duration: 3.9ms | GC: 0.2ms)
+  Rendered photos/index.html.erb within layouts/application (Duration: 23.5ms | GC: 0.6ms)
+  Rendered application/_header.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.0ms | GC: 0.8ms)
+Completed 200 OK in 39ms (Views: 34.8ms | ActiveRecord: 0.9ms (4 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2025-07-30 09:16:18 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered application/_header.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | GC: 0.1ms)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
