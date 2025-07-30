@@ -4,6 +4,17 @@ Create a photo-based social media.
 Website: [Fotobook](https://fotobook-i2ak.onrender.com/)
 
 
+**Testing**
+
+1. Admin:
+    - Email: admin@fotobook.com
+    - Password: 1
+
+2. User:
+    - Email: englishtalent123@gmail.com
+    - Password: 1
+
+
 **Features**:
 
 1. Authentication
