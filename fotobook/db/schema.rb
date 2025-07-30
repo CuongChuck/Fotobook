@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_07_27_130503) do
-  create_table "album_has_photo", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[8.0].define(version: 2025_07_18_083708) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
+  create_table "album_has_photo", id: false, force: :cascade do |t|
     t.bigint "album_id"
     t.bigint "photo_id"
     t.index ["album_id"], name: "index_album_has_photo_on_album_id"
     t.index ["photo_id"], name: "index_album_has_photo_on_photo_id"
   end
 
-  create_table "albums", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "albums", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.bigint "user_id"
@@ -28,42 +31,42 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_27_130503) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
-  create_table "photos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.string "image"
     t.bigint "user_id"
     t.bigint "person_id"
     t.boolean "isPublic"
+    t.boolean "image_processing"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "image_processing"
     t.index ["person_id"], name: "index_photos_on_person_id"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 
-  create_table "user1_follow_user2", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "user1_follow_user2", id: false, force: :cascade do |t|
     t.bigint "followee_id", null: false
     t.bigint "follower_id", null: false
     t.index ["followee_id"], name: "index_user1_follow_user2_on_followee_id"
     t.index ["follower_id"], name: "index_user1_follow_user2_on_follower_id"
   end
 
-  create_table "user_like_album", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "user_like_album", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "album_id"
     t.index ["album_id"], name: "index_user_like_album_on_album_id"
     t.index ["user_id"], name: "index_user_like_album_on_user_id"
   end
 
-  create_table "user_like_photo", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "user_like_photo", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "photo_id"
     t.index ["photo_id"], name: "index_user_like_photo_on_photo_id"
     t.index ["user_id"], name: "index_user_like_photo_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "fname"
     t.string "lname"
     t.string "email"
