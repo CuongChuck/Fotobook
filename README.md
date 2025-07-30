@@ -49,4 +49,14 @@ Create a photo-based social media.
     - [Tab Followings](https://drive.google.com/file/d/1CyP2sv8X8PQGBrzLek-U6CunpJgOrtik/view?usp=sharing)
     - [Tab Followers](https://drive.google.com/file/d/1Qf4Nt3ckYsLuQYMMJ6jKAKAI05UQgAMs/view?usp=sharing)
 
-7. Active Job - Sidekiq for uploading photos
+
+**Features to be developed**
+
+1. Social Sign up / Log in
+2. Infinity loading post
+3. Pagination
+4. Add existing photos to an album
+5. Notify users when someone likes a photo / an album
+6. Send emails to deleted / inactivated users
+7. Include `:confirmable` in devise
+8. Search box
