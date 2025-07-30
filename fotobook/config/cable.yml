@@ -12,6 +12,6 @@ production:
   adapter: postgresql
   connects_to:
     database:
-      writing: fotobook
+      writing: fotobook_qeih
   polling_interval: 0.1.seconds
   message_retention: 1.day
