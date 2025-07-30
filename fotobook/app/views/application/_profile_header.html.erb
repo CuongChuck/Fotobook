@@ -1,8 +1,8 @@
 <div class="d-flex flex-row">
     <% if user.avatar %>
-        <img class="rounded-circle h-25 me-4" src=<%= user.avatar.image.url %>>
+        <img class="rounded-circle me-4 avatar-lg" src=<%= user.avatar.image.url %>>
     <% else %>
-        <%= render partial: "ava", locals: { fname: user.fname, lname: user.lname, classname: "fs-1 p-5 me-4" } %>
+        <%= render partial: "ava", locals: { fname: user.fname, lname: user.lname, classname: "avatar-lg" } %>
     <% end %>
     <div class="d-flex flex-column">
         <% if user_signed_in? %>

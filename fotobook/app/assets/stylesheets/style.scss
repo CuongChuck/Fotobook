@@ -255,10 +255,6 @@ header {
     z-index: 999;
 }
 
-.small-ava {
-    width: 25px;
-}
-
 #avatar-upload-image-user {
     cursor: pointer
 }
@@ -269,4 +265,24 @@ header {
 
 .ava-link {
     width: 5%;
+}
+
+.post {
+    height: 200px;
+}
+
+img {
+    object-fit: cover;
+}
+
+.avatar-sm {
+    width: 35px;
+    height: 35px;
+}
+
+.avatar-lg {
+    width: 170px;
+    height: 170px;
+    font-size: xx-large;
+    margin-right: 20px;
 }

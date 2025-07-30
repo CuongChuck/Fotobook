@@ -1,12 +1,14 @@
 <div class="col col-12 col-lg-6">    
     <div class="d-flex flex-row bg-body-secondary p-1 post my-2 mx-2">
-        <img class="w-50 h-100 photo-image" src=<%= photo.image.url ? photo.image.url : asset_path("image-regular.svg") %> data-bs-toggle="modal" data-bs-target="#photo-content">
+        <div class="overflow-hidden image-wrapper">
+            <img class="w-100 h-100 photo-image" src=<%= photo.image.url ? photo.image.url : asset_path("image-regular.svg") %> data-bs-toggle="modal" data-bs-target="#photo-content">
+        </div>
         <div class="container d-grid pe-1">
             <div class="d-flex flex-row justify-content-between align-items-center">
                 <div class="d-flex flex-row">
                     <a href="<%= photos_path(photo.user.id) %>" class="">
                         <% if photo.user.avatar %>
-                            <img class="rounded-circle small-ava" src=<%= photo.user.avatar.image.url %> alt=<%= photo.user.fname + " " + photo.user.lname %>>
+                            <img class="rounded-circle avatar-sm" src=<%= photo.user.avatar.image.url %> alt=<%= photo.user.fname + " " + photo.user.lname %>>
                         <% else %>
                             <%= render partial: "application/ava", locals: { fname: photo.user.fname, lname: photo.user.lname } %>
                         <% end %>
@@ -21,7 +23,7 @@
                     <% end %>
                 <% end %>
             </div>
-            <h5 class="fs-5 mt-2 text-center photo-title"><%= photo.title %></h5>
+            <h5 class="fs-5 mt-2 photo-title overflow-hidden"><%= photo.title %></h5>
             <p class="photo-description overflow-hidden"><%= photo.description %></p>
             <div class="d-flex flex-row justify-content-between align-items-center align-self-end">
                 <%= turbo_frame_tag photo do %>
