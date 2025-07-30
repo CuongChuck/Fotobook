@@ -7,7 +7,7 @@
     </div>
     <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
         <% if user_signed_in? && user.avatar %>
-            <a class="small-ava" href=<%= "#{t('path.users')}/#{current_user.id.to_s}#{t('path.photos')}" %>><img class="rounded-circle w-100" src=<%= user.avatar.image.url %>></a>
+            <a class="small-ava" href=<%= "#{t('path.users')}/#{current_user.id.to_s}#{t('path.photos')}" %>><img class="rounded-circle avatar-sm" src=<%= user.avatar.image.url %>></a>
             <a href=<%= "#{t('path.users')}/#{current_user.id.to_s}#{t('path.photos')}" %>><h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6></a>
         <% elsif user_signed_in? %>
             <a href=<%= "#{t('path.users')}/#{current_user.id.to_s}#{t('path.photos')}" %>><div dark="true">
