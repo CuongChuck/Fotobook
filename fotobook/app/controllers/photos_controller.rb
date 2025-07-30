@@ -6,6 +6,13 @@ class PhotosController < ApplicationController
   # GET /photos or /photos.json
   def index
     if user_signed_in?
+      if request.path == root_path
+        if current_user.isAdmin?
+          redirect_to admin_root_path
+        else
+          redirect_to user_root_path
+        end
+      end
       if current_user.isAdmin?
         @photos = Photo.photo_only.select(:title, :image, :id).page.page(params[:page]).per(40)
       else
