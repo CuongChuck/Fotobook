@@ -4,4 +4,4 @@
 #
 # Example:
 #
-User.find_or_create_by!(fname: "Admin", lname: "Fotobook", email: "admin@fotobook.com", password: "1", isAdmin: true)
+User.find_or_create_by(fname: "Admin", lname: "Fotobook", email: "admin@fotobook.com", password: "1", isAdmin: true)
