@@ -61,14 +61,15 @@ Website: [Fotobook](https://fotobook-i2ak.onrender.com/)
     - [Tab Followings](https://drive.google.com/file/d/1CyP2sv8X8PQGBrzLek-U6CunpJgOrtik/view?usp=sharing)
     - [Tab Followers](https://drive.google.com/file/d/1Qf4Nt3ckYsLuQYMMJ6jKAKAI05UQgAMs/view?usp=sharing)
 
+7. Pagination per 40 at each of managing tabs
+
 
 **Features to be developed**
 
 1. Social Sign up / Log in
 2. Infinity loading post
-3. Pagination
-4. Add existing photos to an album
-5. Notify users when someone likes a photo / an album
-6. Send emails to deleted / inactivated users
-7. Include `:confirmable` in devise
-8. Search box
+3. Add existing photos to an album
+4. Notify users when someone likes a photo / an album
+5. Send emails to deleted / inactivated users
+6. Include `:confirmable` in devise
+7. Search box
