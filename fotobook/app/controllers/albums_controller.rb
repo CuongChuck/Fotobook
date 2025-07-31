@@ -10,7 +10,7 @@ class AlbumsController < ApplicationController
   def index
     if user_signed_in?
       if current_user.isAdmin?
-        @albums = Album.include_photos
+        @albums = Album.include_photos.page(params[:page]).per(40)
       else
         if request.path.include?("/discover")
           @albums = Album.include_photos.include_likes.include_users.public_only

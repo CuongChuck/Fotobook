@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
   # GET /photos or /photos.json
   def index
     if user_signed_in?
-      if request.path == root_path
+      if request.path == root_path && params[:page].blank?
         if current_user.isAdmin?
           redirect_to admin_root_path
         else
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
         end
       end
       if current_user.isAdmin?
-        @photos = Photo.photo_only.select(:title, :image, :id, :user_id).page.page(params[:page]).per(40)
+        @photos = Photo.photo_only.select(:title, :image, :id, :user_id).page(params[:page]).per(40)
       else
         if request.path != user_root_path
           @photos = Photo.photo_only.include_likes.include_users.public_only

@@ -18,5 +18,8 @@
                 <% end %>
             </tbody>
         </table>
+        <% if user_signed_in? && current_user.isAdmin? %>
+            <%= paginate @users %>
+        <% end %>
     </div>
 </div>
