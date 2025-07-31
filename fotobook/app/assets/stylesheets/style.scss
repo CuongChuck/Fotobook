@@ -286,3 +286,19 @@ img {
     font-size: xx-large;
     margin-right: 20px;
 }
+
+.photo-image {
+    cursor: pointer;
+}
+
+.album-image {
+    cursor: pointer;
+}
+
+.logout:hover {
+    font-weight: bold;
+}
+
+.image-wrap {
+    height: 200px;
+}
