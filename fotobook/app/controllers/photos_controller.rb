@@ -1,7 +1,10 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :authenticate_normal_user, only: [:create]
+  authorize_resource
+
+  def current_ability
+    @current_ability ||= PhotoAbility.new(current_user)
+  end
 
   # GET /photos or /photos.json
   def index
@@ -14,7 +17,7 @@ class PhotosController < ApplicationController
         end
       end
       if current_user.isAdmin?
-        @photos = Photo.photo_only.select(:title, :image, :id).page.page(params[:page]).per(40)
+        @photos = Photo.photo_only.select(:title, :image, :id, :user_id).page.page(params[:page]).per(40)
       else
         if request.path != user_root_path
           @photos = Photo.photo_only.include_likes.include_users.public_only
@@ -25,6 +28,16 @@ class PhotosController < ApplicationController
       end
     else
       @photos = Photo.photo_only.include_likes.include_users.public_only
+    end
+  end
+
+  def search
+    input = params[:photo][:search]
+    if current_user.isAdmin?
+      @photos = Photo.photo_only.select(:title, :image, :id).where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
+    else
+      @photos = Photo.photo_only.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%") + Photo.photo_only.where(user_id: current_user.id).where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
+      render "index", locals: { feed: true }
     end
   end
 

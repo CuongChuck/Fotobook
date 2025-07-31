@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin, only: [:index, :edit, :update, :destroy]
+  authorize_resource
+
+  def current_ability
+    @current_ability ||= UserAbility.new(current_user)
+  end
 
   # GET /users or /users.json
   def index

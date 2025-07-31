@@ -1,7 +1,10 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:edit, :update, :destroy]
-  before_action :authenticate_normal_user, only: [:create]
+  authorize_resource
+
+  def current_ability
+    @current_ability ||= AlbumAbility.new(current_user)
+  end
 
   # GET /albums or /albums.json
   def index
@@ -64,10 +67,15 @@ class AlbumsController < ApplicationController
 
   # PATCH/PUT /albums/1 or /albums/1.json
   def update
-    new_images = params[:album][:images]
-
-    if params[:album][:remove_images].present?
-      params[:album][:remove_images].each do |i|
+    new_images = params[:album][:new_images]
+    remove_images = params[:album][:remove_images]
+    remove_size = remove_images ? remove_images.length : 0
+    # raise "Check params"
+    if @album.photos.size - remove_size + new_images.length - 1 < 1
+      redirect_to edit_user_album_path(current_user.id, @album.id), alert: "Album must have images." and return
+    end
+    if remove_images.present?
+      remove_images.each do |i|
         photo = @album.photos.find(i)
         if photo.title || photo.person_id
           @album.photos.delete(photo)
