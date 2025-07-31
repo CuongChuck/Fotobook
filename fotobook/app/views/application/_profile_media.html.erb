@@ -1,14 +1,16 @@
-<div class="col-6 col-md-4 col-lg-3">
+<div class="col-6 col-lg-4 col-xl-3">
     <div class="m-3">
         <div class="position-relative">
             <% if local_assigns[:photo] %>
-                <img class="rounded w-100 photo-image" src=<%= local_assigns[:photo].image ? local_assigns[:photo].image.url : asset_path("image-regular.svg") %> alt="Media Image" data-bs-toggle="modal" data-bs-target="#photo-content">
+                <div class="overflow-hidden image-wrap">
+                    <img class="rounded h-100 w-100 photo-image" src=<%= local_assigns[:photo].image ? local_assigns[:photo].image.url : asset_path("image-regular.svg") %> alt="Media Image" data-bs-toggle="modal" data-bs-target="#photo-content">
+                </div>
             <% end %>
             <% if local_assigns[:isPrivate] %>
                 <i class="fa-solid fa-lock bg-white position-absolute rounded-circle p-1 top-0 end-0"></i>
             <% end %>
             <% if local_assigns[:isSelf] && %>
-                <a href="<%= local_assigns[:photo].title != nil ? edit_photo_path(local_assigns[:photo].id) : "#" %>"><button class="btn edit-media-button rounded-pill position-absolute bottom-0 end-0 py-0 px-1 text-white">EDIT</button></a>
+                <a href="<%= local_assigns[:photo].title != nil ? edit_user_photo_path(current_user.id, photo.id) : "#" %>"><button class="btn edit-media-button rounded-pill position-absolute bottom-0 end-0 py-0 px-1 text-white">EDIT</button></a>
             <% end %>
         </div>
         <div class="text-center mt-2 photo-title"><%= local_assigns[:photo].title %></div>
