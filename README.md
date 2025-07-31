@@ -62,6 +62,7 @@ Website: [Fotobook](https://fotobook-i2ak.onrender.com/)
     - [Tab Followers](https://drive.google.com/file/d/1Qf4Nt3ckYsLuQYMMJ6jKAKAI05UQgAMs/view?usp=sharing)
 
 7. Pagination per 40 at each of managing tabs
+    - [Demo per 1](https://drive.google.com/file/d/1yLQwEmDBE50PGaF0QKp0Y9OpQr0kXd1s/view?usp=sharing)
 
 
 **Features to be developed**
