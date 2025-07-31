@@ -15,13 +15,23 @@ class AlbumsController < ApplicationController
         if request.path.include?("/discover")
           @albums = Album.include_photos.include_likes.include_users.public_only
         else
-          @albums = Album.include_photos.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id), isPublic: true) + Album.include_photos.include_likes.where(user_id: current_user.id)
+          @albums = Album.include_photos.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).public_only.or(Album.include_photos.include_likes.includes(user: [:followees]).where(user_id: current_user.id))
           render "index", locals: { feed: true }
         end
       end
     else
       @albums = Album.include_photos.include_likes.include_users.public_only
     end
+  end
+
+  def search
+    input = params[:search]
+    if current_user.isAdmin?
+      @albums = Album.include_photos.where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
+    else
+      @albums = Album.include_photos.include_likes.include_users.public_only.where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
+    end
+    render "index"
   end
 
   # GET /albums/1 or /albums/1.json

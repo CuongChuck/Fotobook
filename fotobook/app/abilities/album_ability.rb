@@ -3,6 +3,7 @@ class AlbumAbility
 
   def initialize(user)
     can :read, Album, isPublic: true
+    can :search, Album, isPublic: true
 
     return unless user.present?
 

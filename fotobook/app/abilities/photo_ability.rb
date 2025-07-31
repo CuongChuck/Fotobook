@@ -3,6 +3,7 @@ class PhotoAbility
 
   def initialize(user)
     can :read, Photo, isPublic: true
+    can :search, Photo, isPublic: true
 
     return unless user.present?
 

@@ -48,4 +48,6 @@ Rails.application.routes.draw do
   delete '/like/album/:id', to: 'interaction#unlike_album'
   post '/like/photo/:id', to: 'interaction#like_photo'
   delete '/like/photo/:id', to: 'interaction#unlike_photo'
+  get '/search/photos', to: 'photos#search'
+  get '/search/albums', to: 'albums#search'
 end

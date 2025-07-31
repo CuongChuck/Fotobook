@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
         if request.path != user_root_path
           @photos = Photo.photo_only.include_likes.include_users.public_only
         else
-          @photos = Photo.photo_only.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).public_only + Photo.where(user_id: current_user.id).photo_only
+          @photos = Photo.photo_only.include_likes.include_users.where(user_id: current_user.followees.select(:id)).public_only.or(Photo.include_likes.include_users.where(user_id: current_user.id).photo_only)
           render "index", locals: { feed: true }
         end
       end
@@ -32,13 +32,9 @@ class PhotosController < ApplicationController
   end
 
   def search
-    input = params[:photo][:search]
-    if current_user.isAdmin?
-      @photos = Photo.photo_only.select(:title, :image, :id).where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
-    else
-      @photos = Photo.photo_only.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%") + Photo.photo_only.where(user_id: current_user.id).where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
-      render "index", locals: { feed: true }
-    end
+    input = params[:search]
+    @photos = Photo.photo_only.include_likes.include_users.public_only.where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
+    render "index"
   end
 
   # GET /photos/1 or /photos/1.json
