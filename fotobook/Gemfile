@@ -81,3 +81,5 @@ gem "cloudinary"
 gem "sidekiq"
 
 gem "kaminari"
+
+gem "cancancan"
