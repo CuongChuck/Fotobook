@@ -17,6 +17,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     elsif params[:user][:fname].present? || params[:user][:lname].present? || params[:user][:email].present?
       file = params[:user][:avatar]
       if file
+        if current_user.avatar
+          current_user.avatar.remove_image!
+          current_user.save
+        end
         photo = Photo.new(
           image: file,
           user_id: current_user.id,
