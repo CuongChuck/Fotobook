@@ -26,11 +26,7 @@ class AlbumsController < ApplicationController
 
   def search
     input = params[:search]
-    if current_user.isAdmin?
-      @albums = Album.include_photos.where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
-    else
-      @albums = Album.include_photos.include_likes.include_users.public_only.where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
-    end
+    @albums = Album.include_photos.include_likes.include_users.public_only.where("title LIKE ? OR description LIKE ?", "%#{input}%", "%#{input}%")
     render "index"
   end
 

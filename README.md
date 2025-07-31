@@ -64,6 +64,9 @@ Website: [Fotobook](https://fotobook-i2ak.onrender.com/)
 7. Pagination per 40 at each of managing tabs
     - [Demo per 1](https://drive.google.com/file/d/1yLQwEmDBE50PGaF0QKp0Y9OpQr0kXd1s/view?usp=sharing)
 
+8. Search bar for searching photos and albums
+    - [Demo](https://drive.google.com/file/d/1-ixleZP_mMpw_fRnjaoT0bS5gyFaBKo0/view?usp=sharing)
+
 
 **Features to be developed**
 
@@ -73,4 +76,3 @@ Website: [Fotobook](https://fotobook-i2ak.onrender.com/)
 4. Notify users when someone likes a photo / an album
 5. Send emails to deleted / inactivated users
 6. Include `:confirmable` in devise
-7. Search box

@@ -1,10 +1,10 @@
 <div class="d-flex flex-row justify-content-center mb-2">
-    <a href=<%= !user_signed_in? ? root_path : request.path.include?("discover") ? photos_discover_path : request.path.include?("search") ? "#{search_photos_path}?search=#{params[:search]}" : user_root_path %>>
+    <a href=<%= request.path.include?("search") ? "#{search_photos_path}?search=#{params[:search]}" : !user_signed_in? ? root_path : request.path.include?("discover") ? photos_discover_path : user_root_path %>>
         <input type="radio" class="btn-check mode-radio" id="photo" autocomplete="off" <%= 'checked' if photo %>>
         <label id="mode-button" class="btn mode" for="photo">PHOTO</label>
     </a>
 
-    <a href=<%= !user_signed_in? ? albums_path : request.path.include?("discover") ? albums_discover_path : request.path.include?("search") ? "#{search_albums_path}?search=#{params[:search]}" : albums_feeds_path %>>
+    <a href=<%= request.path.include?("search") ? "#{search_albums_path}?search=#{params[:search]}" : !user_signed_in? ? albums_path : request.path.include?("discover") ? albums_discover_path : albums_feeds_path %>>
         <input type="radio" class="btn-check mode-radio" id="album" autocomplete="off" <%= 'checked' if album %>>
         <label id="mode-button" class="btn mode" for="album">ALBUM</label>
     </a>
