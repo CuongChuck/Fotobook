@@ -1,8 +1,8 @@
 <div class="d-flex flex-column nav-bar">
     <% if current_user.isAdmin %>
-        <a current=<%= local_assigns[:page] == "photo" ? "true" : "false" %> href=<%= t('path.photos') %>><%= t('manage', item: t('photos')) %></a>
-        <a current=<%= local_assigns[:page] == "album" ? "true" : "false" %> href=<%= t('path.albums') %>><%= t('manage', item: t('albums')) %></a>
-        <a current=<%= local_assigns[:page] == "user" ? "true" : "false" %> href=<%= t('path.users') %>><%= t('manage', item: t('users')) %></a>
+        <a current=<%= local_assigns[:page] == "photo" ? "true" : "false" %> href=<%= admin_root_path %>><%= t('manage', item: t('photos')) %></a>
+        <a current=<%= local_assigns[:page] == "album" ? "true" : "false" %> href=<%= albums_path %>><%= t('manage', item: t('albums')) %></a>
+        <a current=<%= local_assigns[:page] == "user" ? "true" : "false" %> href=<%= users_path %>><%= t('manage', item: t('users')) %></a>
     <% else %>
         <a current=<%= local_assigns[:page] == "feed" ? "true" : "false" %> href=<%= user_root_path %>><%= "Feeds" %></a>
         <a current=<%= local_assigns[:page] == "discover" ? "true" : "false" %> href=<%= t('path.photos') + t('path.discover') %>><%= "Discover" %></a>

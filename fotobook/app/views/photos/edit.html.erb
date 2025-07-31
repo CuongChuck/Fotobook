@@ -4,7 +4,7 @@
     <%= render "navbar" %>
     <div class="bg-white mt-3 pt-3 w-75 container">
         <%= render "application/edit_header", title: "Edit Photo" %>
-        <%= form_for(@photo, as: :photo, url: photo_path(@photo), method: :put, local: true, html: { multipart: true }) do |f| %>
+        <%= form_for(@photo, as: :photo, url: user_photo_path(@photo), method: :put, local: true, html: { multipart: true }) do |f| %>
             <div class="d-flex flex-row justify-content-between mt-3">
                 <div class="new-field">
                     <div class="mb-4">
@@ -30,7 +30,7 @@
                 </div>
             </div>
         <% end %>
-        <%= render "application/modal_delete", msg: "photo", object: @photo, url: photo_path(@photo), modal_id: "delete-photo-#{@photo.id}" %>
+        <%= render "application/modal_delete", msg: "photo", object: @photo, url: user_photo_path(@photo), modal_id: "delete-photo-#{@photo.id}" %>
         <button class="btn btn-danger my-3" data-bs-toggle="modal" data-bs-target="#delete-photo-<%= @photo.id %>">
             <i class="fa-solid fa-trash me-1"></i>
             Delete

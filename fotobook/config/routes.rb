@@ -30,16 +30,14 @@ Rails.application.routes.draw do
   get '/albums/discover', to: 'albums#index'
   get '/photos', to: 'photos#index', as: :admin_root
   resources :users, only: [:index, :edit, :update, :destroy] do
-    resources :photos, only: [:new, :create]
-    resources :albums, only: [:new, :create]
-  end
-  resources :photos, only: [:edit, :update, :destroy]
-  resources :albums, only: [:edit, :update, :destroy] do
-    resources :photos, only: [:destroy]
+    resources :photos, except: [:show, :index]
+    resources :albums, except: [:show, :index] do
+      resources :photos, only: [:destroy]
+    end
   end
   scope '/users/:user_id' do
     get '/photos', to: 'users#show'
-    get '/albums', to: 'users#show' 
+    get '/albums', to: 'users#show'
     get '/followings', to: 'users#show'
     get '/followers', to: 'users#show'
   end

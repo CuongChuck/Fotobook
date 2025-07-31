@@ -3,7 +3,7 @@
         <img class="w-100" src="<%= photo.image.url ? photo.image.url : asset_path("image-regular.svg") %>" alt="Photo">
         <div class="title-panel position-absolute top-0 start-0 w-100 px-2 py-1 d-flex flex-row align-items-center justify-content-between">
             <span class="text-white text-truncate w-75 overflow-hidden me-2"><%= photo.title %></span>
-            <a href="<%= photo.title ? edit_photo_path(photo.id) : '#' %>"><i class="text-white fa-regular fa-pen-to-square"></i></a>
+            <a href="<%= photo.title ? edit_user_photo_path(photo.user_id, photo.id) : '#' %>"><i class="text-white fa-regular fa-pen-to-square"></i></a>
         </div>
     </div>
 </div>
