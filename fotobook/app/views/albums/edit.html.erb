@@ -4,7 +4,7 @@
     <%= render "navbar" %>
     <div class="bg-white mt-3 pt-3 w-75 container">
         <%= render "application/edit_header", title: "Edit Album" %>
-        <%= form_for(@album, as: :album, url: album_path(@album), method: :put, local: true, html: { multipart: true }) do |f| %>
+        <%= form_for(@album, as: :album, url: user_album_path(@album), method: :put, local: true, html: { multipart: true }) do |f| %>
             <div class="d-flex flex-row justify-content-between mt-3 edit-album-form">
                 <div class="new-field">
                     <div class="mb-4">
@@ -19,7 +19,7 @@
                         <label for="avatar-upload-user">
                             <%= image_tag "square-plus-regular.jpg", class: "w-100", id: "avatar-upload-image-user" %>
                         </label>
-                        <%= f.file_field :images, id: "avatar-upload-user", class: "images-upload", accept: "image/jpeg,image/png,image/gif", multiple: true %>
+                        <%= f.file_field :new_images, id: "avatar-upload-user", class: "images-upload", accept: "image/jpeg,image/png,image/gif", multiple: true %>
                     </div>
                     <div class="mb-4 mt-3">
                         <%= f.submit "Save", class: "btn btn-success me-4" %>
@@ -44,7 +44,7 @@
             </div>
             <%= hidden_field_tag "album[remove_images][]", "", disabled: true, id: "remove_images" %>
         <% end %>
-        <%= render "application/modal_delete", msg: "album", object: @album, url: album_path(@album), modal_id: "delete-album-#{@album.id}" %>
+        <%= render "application/modal_delete", msg: "album", object: @album, url: user_album_path(@album), modal_id: "delete-album-#{@album.id}" %>
     </div>
 </div>
 
