@@ -1,6 +1,8 @@
-<div class="col col-6 col-lg-4 col-xl-3">
+<div class="col-12 col-md-6 col-lg-4 col-xl-3">
     <div class="media-manager-container position-relative mb-2">
-        <img class="w-100" src="<%= photo.image.url ? photo.image.url : asset_path("image-regular.svg") %>" alt="Photo">
+        <div class="overflow-hidden image-wrap">
+            <img class="w-100 h-100" src="<%= photo.image.url ? photo.image.url : asset_path("image-regular.svg") %>" alt="Photo">
+        </div>
         <div class="title-panel position-absolute top-0 start-0 w-100 px-2 py-1 d-flex flex-row align-items-center justify-content-between">
             <span class="text-white text-truncate w-75 overflow-hidden me-2"><%= photo.title %></span>
             <a href="<%= photo.title ? edit_user_photo_path(photo.user_id, photo.id) : '#' %>"><i class="text-white fa-regular fa-pen-to-square"></i></a>
