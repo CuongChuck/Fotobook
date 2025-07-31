@@ -3,7 +3,7 @@ class Photo < ApplicationRecord
 
     scope :include_likes, -> { includes(:user_like_photo) }
     scope :public_only, -> { where(isPublic: true) }
-    scope :include_users, -> { includes(:user) }
+    scope :include_users, -> { includes(user: [:followees, :liked_photos]) }
     scope :photo_only, -> { where.not(title: nil) }
 
     mount_uploader :image, ImageUploader
