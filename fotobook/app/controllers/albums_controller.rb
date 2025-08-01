@@ -13,9 +13,9 @@ class AlbumsController < ApplicationController
         @albums = Album.include_photos.page(params[:page]).per(40)
       else
         if request.path.include?("/discover")
-          @albums = Album.include_photos.include_likes.include_users.public_only
+          @albums = Album.include_photos.include_likes.includes(user: [:followers, :avatar]).public_only
         else
-          @albums = Album.include_photos.include_likes.includes(user: [:followees]).where(user_id: current_user.followees.select(:id)).public_only.or(Album.include_photos.include_likes.includes(user: [:followees]).where(user_id: current_user.id))
+          @albums = Album.include_photos.include_likes.include_users.where(user_id: current_user.followees.select(:id)).public_only.or(Album.include_photos.include_likes.include_users.where(user_id: current_user.id))
           render "index", locals: { feed: true }
         end
       end

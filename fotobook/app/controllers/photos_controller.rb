@@ -20,14 +20,14 @@ class PhotosController < ApplicationController
         @photos = Photo.photo_only.select(:title, :image, :id, :user_id).page(params[:page]).per(40)
       else
         if request.path != user_root_path
-          @photos = Photo.photo_only.include_likes.include_users.public_only
+          @photos = Photo.photo_only.include_likes.includes(user: [:followers, :avatar]).public_only
         else
-          @photos = Photo.photo_only.include_likes.include_users.where(user_id: current_user.followees.select(:id)).public_only.or(Photo.include_likes.include_users.where(user_id: current_user.id).photo_only)
+          @photos = Photo.photo_only.include_users.include_likes.where(user_id: current_user.followees.select(:id)).public_only.or(Photo.include_users.include_likes.where(user_id: current_user.id).photo_only)
           render "index", locals: { feed: true }
         end
       end
     else
-      @photos = Photo.photo_only.include_likes.include_users.public_only
+      @photos = Photo.photo_only.include_users.include_likes.public_only
     end
   end
 

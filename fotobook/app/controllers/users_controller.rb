@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ edit update destroy ]
   authorize_resource
 
   def current_ability
@@ -14,12 +14,17 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     if request.path == photos_path
+      @user = User.includes(:photos).find(params[:user_id])
       render "show", locals: { page: "photos" }
     elsif request.path.include?(t('path.albums'))
+      @user = User.find(params[:user_id])
+      @albums = Album.include_photos.where(user_id: @user.id)
       render "show", locals: { page: "albums" }
     elsif request.path == followings_path
+      @user = User.includes(followees: [:avatar]).find(params[:user_id])
       render "show", locals: { page: "followings" }
     elsif request.path == followers_path
+      @user = User.includes(followers: [:avatar]).find(params[:user_id])
       render "show", locals: { page: "followers" }
     end
   end
@@ -103,11 +108,7 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      if params[:user_id]
-        @user = User.find(params[:user_id])
-      else
-        @user = User.find(params[:id])
-      end
+      @user = User.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
