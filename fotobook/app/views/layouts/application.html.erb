@@ -20,7 +20,7 @@
   </head>
 
   <body class="<%= [new_user_session_path, new_user_registration_path].include?(request.path) ? "" : "bg-body-tertiary" %> position-relative">
-    <%= render partial: "header", locals: { isAdmin: false, isLogin: false, user: current_user } %>
+    <%= render partial: "header", locals: { isAdmin: false, isLogin: false } %>
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
       <% flash.each do |key, message| %>
         <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-bs-delay="3000">

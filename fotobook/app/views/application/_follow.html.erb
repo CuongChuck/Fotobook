@@ -4,7 +4,7 @@
         <%= f.label :follow, "unfollow", id: "follow-button", class: "btn follow-label rounded-pill p-1 px-2", for: "follow-#{user.id}" %>
     <% end %>
 <% else %>
-    <% if current_user.followees.include?(user) %>
+    <% if user.followers.include?(current_user) %>
         <%= form_with(url: "/follow/#{user.id}", method: :delete, data: { turbo_frame: user }) do |f| %>
             <%= f.check_box :follow, class: "btn-check follow-input", id: "follow-#{user.id}", autocomplete: "off", checked: true, onchange: "this.form.requestSubmit()" %>
             <%= f.label :follow, "following", id: "follow-button", class: "btn follow-label rounded-pill p-1 px-2", for: "follow-#{user.id}" %>

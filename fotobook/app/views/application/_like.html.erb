@@ -1,7 +1,7 @@
 <div class="d-flex flex-row align-items-center">
     <% if user_signed_in? %>
         <% if local_assigns[:photo] %>
-            <% if current_user.liked_photos.include?(photo) %>
+            <% if photo.user_like_photo.include?(current_user) %>
                 <%= form_with(url: "/like/photo/#{photo.id}", method: :delete, data: { turbo_frame: photo }) do |f| %>
                     <%= button_tag(type: 'submit', class: "btn like-button") do %>
                         <i class="fa-solid fa-heart fa-xs like me-1" like="true"></i>
@@ -15,7 +15,7 @@
                 <% end %>
             <% end %>
         <% else %>
-            <% if current_user.liked_albums.include?(album) %>
+            <% if album.user_like_album.include?(current_user) %>
                 <%= form_with(url: "/like/album/#{album.id}", method: :delete, data: { turbo_frame: album }) do |f| %>
                     <%= button_tag(type: 'submit', class: "btn like-button") do %>
                         <i class="fa-solid fa-heart fa-xs like me-1" like="true"></i>

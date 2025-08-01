@@ -26,11 +26,11 @@
                 <% end %>
             <% elsif local_assigns[:page] == "albums" %>
                 <% if @user == current_user %>
-                    <% @user.albums.each do |album| %>
+                    <% @albums.each do |album| %>
                         <%= render "application/profile_album", isSelf: true, isPrivate: !album.isPublic, album: album %>
                     <% end %>
                 <% else %>
-                    <% @user.albums.public_only.each do |album| %>
+                    <% @albums.public_only.each do |album| %>
                         <%= render "application/profile_album", isSelf: false, isPrivate: false, album: album %>
                     <% end %>
                 <% end %>

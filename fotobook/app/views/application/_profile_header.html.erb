@@ -16,9 +16,9 @@
         <% end %>
         <h1 class="text-black my-3"><%= "#{user.fname} #{user.lname}" %></h1>
         <div class="d-flex flex-wrap">
-            <a href=<%= photos_path %> class="profile-tab" select=<%= page == "photos" ? "true" : "false" %>><span class="fs-3"><%= user.photos.photo_only.size %></span> PHOTOS</a>
+            <a href=<%= photos_path %> class="profile-tab" select=<%= page == "photos" ? "true" : "false" %>><span class="fs-3"><%= user.photos_count %></span> PHOTOS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
-            <a href=<%= "#{t('path.users')}/#{params[:user_id]}#{t('path.albums')}" %> class="profile-tab" select=<%= page == "albums" ? "true" : "false" %>><span class="fs-3"><%= user.albums.size %></span> ALBUMS</a>
+            <a href=<%= "#{t('path.users')}/#{params[:user_id]}#{t('path.albums')}" %> class="profile-tab" select=<%= page == "albums" ? "true" : "false" %>><span class="fs-3"><%= user.albums_count %></span> ALBUMS</a>
             <div class="border-start mx-lg-3 mx-2"></div>
             <a href=<%= followings_path %> class="profile-tab" select=<%= page == "followings" ? "true" : "false" %>><span class="fs-3"><%= user.followees.size %></span> FOLLOWINGS</a>
             <div class="border-start mx-lg-3 mx-2"></div>

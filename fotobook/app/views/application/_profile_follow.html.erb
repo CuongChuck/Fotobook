@@ -8,8 +8,8 @@
             <% end %>
             <h5 class="text-dark mt-1"><%= "#{user.fname} #{user.lname}" %></h5>
             <div class="d-flex flex-row justify-content-center gap-4 mb-2">
-                <div class="text-center fs-3 fw-bold tagnum"><%= user.photos ? user.photos.photo_only.count : 0  %><div class="tag fw-normal">PHOTOS</div></div>
-                <div class="text-center fs-3 fw-bold tagnum"><%= user.albums.count %><div class="tag fw-normal">ALBUMS</div></div>
+                <div class="text-center fs-3 fw-bold tagnum"><%= user.photos_count  %><div class="tag fw-normal">PHOTOS</div></div>
+                <div class="text-center fs-3 fw-bold tagnum"><%= user.albums_count %><div class="tag fw-normal">ALBUMS</div></div>
             </div>
             <% if current_user != user %>
                 <%= turbo_frame_tag user, class: "follow-button-#{user.id}" do %>

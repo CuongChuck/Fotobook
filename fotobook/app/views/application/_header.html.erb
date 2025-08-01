@@ -13,14 +13,14 @@
         <% end %>
     </div>
     <div class="col offset-1 offset-md-2 col-2 d-flex flex-row justify-content-center align-items-center">
-        <% if user_signed_in? && user.avatar %>
-            <a href=<%= photos_path(user.id) %>><img class="rounded-circle avatar-sm" src=<%= user.avatar.image.url %>></a>
-            <a href=<%= photos_path(user.id) %>><h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6></a>
+        <% if user_signed_in? && current_user.avatar %>
+            <a href=<%= photos_path(current_user.id) %>><img class="rounded-circle avatar-sm" src=<%= current_user.avatar.image.url %>></a>
+            <a href=<%= photos_path(current_user.id) %>><h6 class="my-auto mx-3"><%= current_user.fname + " " + current_user.lname %></h6></a>
         <% elsif user_signed_in? %>
-            <a href=<%= photos_path(user.id) %>><div dark="true">
-                <%= render partial: "ava", locals: { fname: user.fname, lname: user.lname } %>
+            <a href=<%= photos_path(current_user.id) %>><div dark="true">
+                <%= render partial: "ava", locals: { fname: current_user.fname, lname: current_user.lname } %>
             </div></a>
-            <a href=<%= photos_path(user.id) %>><h6 class="my-auto mx-3"><%= user.fname + " " + user.lname %></h6></a>
+            <a href=<%= photos_path(current_user.id) %>><h6 class="my-auto mx-3"><%= current_user.fname + " " + current_user.lname %></h6></a>
         <% end %>
     </div>
     <div class="col col-2">

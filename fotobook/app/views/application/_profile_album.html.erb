@@ -14,7 +14,7 @@
                 <a href="<%= edit_user_album_path(current_user.id, album.id) %>"><button class="btn edit-media-button rounded-pill position-absolute bottom-0 end-0 py-0 px-1 text-white">EDIT</button></a>
             <% end %>
             <div class="rounded-circle fw-bold p-3 photo-counter position-absolute top-50 start-50 translate-middle text-center text-white">
-                <div class="m-0 fs-2"><%= local_assigns[:album].photos.count %></div>
+                <div class="m-0 fs-2"><%= local_assigns[:album].photos.size %></div>
                 <div class="fs-lg-2 fs-sm-4">PHOTOS</div>
             </div>
         </div>
