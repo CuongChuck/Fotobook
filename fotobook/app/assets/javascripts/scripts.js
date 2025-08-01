@@ -72,11 +72,12 @@ document.addEventListener('turbo:load', () => {
         imagesAlbum.addEventListener('change', (e) => {
             if (window.File && window.FileReader && window.FileList && window.Blob) {
                 const files = e.target.files;
+                const container = document.querySelector('.album-images');
+                container.innerHTML = '';
                 for (let file of files) {
                     const reader = new FileReader();
                     reader.addEventListener('load', (event) => {
                         const pic = event.target;
-                        const container = document.querySelector('.album-images');
                         if (container) {
                             const img = document.createElement('img');
                             img.className = "col col-xl-3 col-md-4 col-6";
